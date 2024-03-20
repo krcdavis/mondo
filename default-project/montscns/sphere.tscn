@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bucb0m1og0dti"]
+
+[ext_resource type="PackedScene" uid="uid://nu2my2sb44xs" path="res://default-project/models-mons/sphere.glb" id="1_88352"]
+
+[node name="sphere" instance=ExtResource("1_88352")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)

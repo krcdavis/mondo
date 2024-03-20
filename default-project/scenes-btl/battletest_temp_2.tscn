@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dnm05icq701g3"]
+
+[ext_resource type="PackedScene" uid="uid://dyqc0e015r1pu" path="res://default-project/models-etc/battletest temp 2.glb" id="1_qgwvu"]
+
+[node name="battletest temp 2" instance=ExtResource("1_qgwvu")]
+
+[node name="Circle_001" parent="." index="1"]
+transform = Transform3D(-0.975601, 0, -145.945, 0, 145.948, 0, 145.945, 0, -0.975601, 0, 36.0995, 0)

@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3 uid="uid://cw4quqvtyclvb"]
+
+[ext_resource type="Script" path="res://battlescripts/btlw1on1.gd" id="1_v5af7"]
+[ext_resource type="PackedScene" uid="uid://b0cx4g6ewnoto" path="res://battlescripts/battlehud.tscn" id="2_j7ujm"]
+[ext_resource type="PackedScene" uid="uid://dyqc0e015r1pu" path="res://default-project/models-etc/battletest temp 2.glb" id="5_feivc"]
+[ext_resource type="PackedScene" uid="uid://3en0e210viq4" path="res://flatscenes/btl_left_big.tscn" id="6_nibd3"]
+[ext_resource type="PackedScene" uid="uid://b7nmf3en84o7y" path="res://flatscenes/btl_right_small.tscn" id="7_c653y"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3dm43"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_51ipv"]
+sky_material = SubResource("ProceduralSkyMaterial_3dm43")
+
+[sub_resource type="Environment" id="Environment_omeqi"]
+background_mode = 2
+background_energy_multiplier = 0.95
+sky = SubResource("Sky_51ipv")
+tonemap_mode = 2
+
+[node name="btlw1on1" type="Node3D"]
+script = ExtResource("1_v5af7")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_omeqi")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+light_energy = 0.785
+light_indirect_energy = 0.965
+shadow_enabled = true
+
+[node name="battletest temp 2" parent="." instance=ExtResource("5_feivc")]
+
+[node name="Circle_001" parent="battletest temp 2" index="1"]
+transform = Transform3D(95.5584, 0, -110.316, 0, 145.948, 0, 110.316, 0, 95.5584, 0, 36.0995, 0)
+
+[node name="battlehud" parent="." instance=ExtResource("2_j7ujm")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.626604, 0.0990263, -0.773021, 0, 0.991894, 0.127065, 0.779338, -0.0796192, 0.621525, -37.213, 40.712, 44.339)
+fov = 37.5
+
+[node name="point0" type="Node3D" parent="."]
+transform = Transform3D(-0.989521, 0, 0.144391, 0, 1, 0, -0.144391, 0, -0.989521, -1.59484, 29.2769, 30.4071)
+
+[node name="point1" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.02628, 29.2769, -29.6674)
+
+[node name="label0" parent="." instance=ExtResource("6_nibd3")]
+position = Vector2(16, 325)
+
+[node name="label1" parent="." instance=ExtResource("7_c653y")]
+position = Vector2(837, 38)
+
+[editable path="battletest temp 2"]

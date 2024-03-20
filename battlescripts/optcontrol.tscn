@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cg5r77gpo26pa"]
+
+[ext_resource type="Script" path="res://battlescripts/optcontrol.gd" id="1_2uosl"]
+
+[node name="optcontrol" type="Node2D"]
+script = ExtResource("1_2uosl")

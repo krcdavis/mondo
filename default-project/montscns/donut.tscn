@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://6c0rmcf86w10"]
+
+[ext_resource type="PackedScene" uid="uid://dd8n865sg3nig" path="res://default-project/models-mons/torus.glb" id="1_urg4r"]
+
+[node name="torus" instance=ExtResource("1_urg4r")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
