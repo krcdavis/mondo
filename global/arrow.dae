@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <asset>
+    <contributor>
+      <author>Blender User</author>
+      <authoring_tool>Blender 3.2.2 commit date:2022-08-02, commit time:18:15, hash:bcfdb14560e7</authoring_tool>
+    </contributor>
+    <created>2024-02-03T16:22:58</created>
+    <modified>2024-02-03T16:22:58</modified>
+    <unit name="meter" meter="1"/>
+    <up_axis>Z_UP</up_axis>
+  </asset>
+  <library_effects>
+    <effect id="arrowred-effect">
+      <profile_COMMON>
+        <technique sid="common">
+          <lambert>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <diffuse>
+              <color sid="diffuse">1 0.0521724 0.05749577 1</color>
+            </diffuse>
+            <reflectivity>
+              <float sid="specular">0.9574468</float>
+            </reflectivity>
+            <index_of_refraction>
+              <float sid="ior">1.45</float>
+            </index_of_refraction>
+          </lambert>
+        </technique>
+      </profile_COMMON>
+    </effect>
+  </library_effects>
+  <library_images/>
+  <library_materials>
+    <material id="arrowred-material" name="arrowred">
+      <instance_effect url="#arrowred-effect"/>
+    </material>
+  </library_materials>
+  <library_geometries>
+    <geometry id="Circle-mesh" name="Circle">
+      <mesh>
+        <source id="Circle-mesh-positions">
+          <float_array id="Circle-mesh-positions-array" count="18">0 1 0 -1.732051 -0.5000001 0 1.732051 -0.4999999 0 0 1 0.2192758 -1.732051 -0.5000001 0.2192758 1.732051 -0.4999999 0.2192758</float_array>
+          <technique_common>
+            <accessor source="#Circle-mesh-positions-array" count="6" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Circle-mesh-normals">
+          <float_array id="Circle-mesh-normals-array" count="18">0 0 -1 0 0 1 0.6546536 0.755929 0 0 -1 0 -0.6546537 0.7559289 0 0 -1 0</float_array>
+          <technique_common>
+            <accessor source="#Circle-mesh-normals-array" count="6" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Circle-mesh-map-0">
+          <float_array id="Circle-mesh-map-0-array" count="48">0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</float_array>
+          <technique_common>
+            <accessor source="#Circle-mesh-map-0-array" count="24" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="Circle-mesh-vertices">
+          <input semantic="POSITION" source="#Circle-mesh-positions"/>
+        </vertices>
+        <triangles material="arrowred-material" count="8">
+          <input semantic="VERTEX" source="#Circle-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#Circle-mesh-normals" offset="1"/>
+          <input semantic="TEXCOORD" source="#Circle-mesh-map-0" offset="2" set="0"/>
+          <p>1 0 0 0 0 1 2 0 2 4 1 3 5 1 4 3 1 5 0 2 6 5 2 7 2 2 8 2 3 9 4 3 10 1 3 11 1 4 12 3 4 13 0 4 14 0 2 15 3 2 16 5 2 17 2 5 18 5 5 19 4 5 20 1 4 21 4 4 22 3 4 23</p>
+        </triangles>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_visual_scenes>
+    <visual_scene id="Scene" name="Scene">
+      <node id="Circle" name="Circle" type="NODE">
+        <matrix sid="transform">1 0 0 0 0 -4.37114e-8 1 0 0 -1 -4.37114e-8 1 0 0 0 1</matrix>
+        <instance_geometry url="#Circle-mesh" name="Circle">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="arrowred-material" target="#arrowred-material">
+                <bind_vertex_input semantic="UVMap" input_semantic="TEXCOORD" input_set="0"/>
+              </instance_material>
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#Scene"/>
+  </scene>
+</COLLADA>

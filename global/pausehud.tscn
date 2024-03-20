@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://chpqnf7q77phw"]
+
+[ext_resource type="PackedScene" uid="uid://cbahgw3kuk32j" path="res://global/textboxbak.tscn" id="1_o2ux1"]
+
+[node name="pausehud" type="CanvasLayer"]
+
+[node name="textbox" parent="." instance=ExtResource("1_o2ux1")]
+visible = false

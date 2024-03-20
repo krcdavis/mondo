@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://dlxfx1cdack4v"]
+
+[ext_resource type="Script" path="res://global/you.gd" id="1_6sx4p"]
+[ext_resource type="Script" path="res://global/intpoint.gd" id="2_8ou82"]
+[ext_resource type="Script" path="res://global/modelloader.gd" id="3_j1wbe"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ph7pc"]
+radius = 0.611627
+height = 4.0
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2hbur"]
+radius = 0.601858
+height = 4.0
+
+[node name="you" type="CharacterBody3D"]
+script = ExtResource("1_6sx4p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("CapsuleShape3D_ph7pc")
+
+[node name="visual" type="Node3D" parent="."]
+
+[node name="intpoint" type="Node3D" parent="visual"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7393, 1.31989)
+script = ExtResource("2_8ou82")
+
+[node name="model" type="Node3D" parent="visual"]
+script = ExtResource("3_j1wbe")
+
+[node name="player-area" type="Area3D" parent="."]
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="player-area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("CapsuleShape3D_2hbur")
+
+[node name="campoint" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.924991, 0.379989, 0, -0.379989, 0.924991, 0, 5.16961, 4.97305)
+
+[node name="Camera3D" type="Camera3D" parent="campoint"]
+fov = 64.4
+near = 0.001

@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmgbou7y7jqjp"]
+
+[ext_resource type="Script" path="res://flatscenes/hud.gd" id="1_lgcoj"]
+[ext_resource type="PackedScene" uid="uid://cbahgw3kuk32j" path="res://global/textbox.tscn" id="1_pvgbi"]
+
+[node name="hud" type="CanvasLayer"]
+script = ExtResource("1_lgcoj")
+
+[node name="textbox" parent="." instance=ExtResource("1_pvgbi")]
+
+[node name="menupt" type="Node2D" parent="."]
+position = Vector2(1099, 471)

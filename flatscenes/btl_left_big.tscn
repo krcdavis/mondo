@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://3en0e210viq4"]
+
+[ext_resource type="Texture2D" uid="uid://b61kg1uhi8aj5" path="res://default-project/flatresources/btl_left_big.png" id="1_87are"]
+[ext_resource type="PackedScene" uid="uid://cum6h8qrwlw8o" path="res://flatscenes/hpbar.tscn" id="2_kf4rt"]
+[ext_resource type="Script" path="res://flatscenes/btl_label.gd" id="2_tv68h"]
+
+[node name="BtlLeftBig" type="Sprite2D"]
+texture = ExtResource("1_87are")
+centered = false
+script = ExtResource("2_tv68h")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 65.0
+offset_top = 19.0
+offset_right = 279.0
+offset_bottom = 53.0
+theme_override_font_sizes/font_size = 24
+text = "dsggggdfhfgh"
+
+[node name="hpbar" parent="." instance=ExtResource("2_kf4rt")]
+offset_top = 59.0
+offset_bottom = 112.0
+
+[node name="lvlabel" type="Label" parent="."]
+offset_left = 237.0
+offset_top = 36.0
+offset_right = 285.0
+offset_bottom = 60.0
+text = "lv xxx"
