@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://b0cx4g6ewnoto"]
+
+[ext_resource type="Script" path="res://battlescripts/battlehud.gd" id="1_x8l01"]
+[ext_resource type="PackedScene" uid="uid://cbahgw3kuk32j" path="res://global/textbox.tscn" id="2_sfixy"]
+[ext_resource type="PackedScene" uid="uid://cg5r77gpo26pa" path="res://battlescripts/optcontrol.tscn" id="3_sykf5"]
+[ext_resource type="PackedScene" uid="uid://cax4yq3p0vl65" path="res://battlescripts/partycontrol.tscn" id="5_0y3as"]
+[ext_resource type="PackedScene" uid="uid://whu8d4fp7vgv" path="res://battlescripts/movecontrol.tscn" id="5_m3i2l"]
+
+[node name="battlehud" type="CanvasLayer"]
+script = ExtResource("1_x8l01")
+
+[node name="textbox" parent="." instance=ExtResource("2_sfixy")]
+
+[node name="optcontrol" parent="." instance=ExtResource("3_sykf5")]
+visible = false
+position = Vector2(727, 494)
+
+[node name="partycontrol" parent="." instance=ExtResource("5_0y3as")]
+visible = false
+position = Vector2(751, 264)
+
+[node name="movecontrol" parent="." instance=ExtResource("5_m3i2l")]
+position = Vector2(913, 251)

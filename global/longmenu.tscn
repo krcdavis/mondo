@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://buoul8i52ip7b"]
+
+[ext_resource type="Script" path="res://global/longmenu.gd" id="1_w7w00"]
+
+[node name="longmenu" type="Node2D"]
+script = ExtResource("1_w7w00")

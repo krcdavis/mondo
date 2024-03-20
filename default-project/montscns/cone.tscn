@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfc2kcifk8jox"]
+
+[ext_resource type="PackedScene" uid="uid://cti1y2ptv0q34" path="res://default-project/models-mons/cone.glb" id="1_giiim"]
+
+[node name="cone2" instance=ExtResource("1_giiim")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)

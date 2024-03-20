@@ -1,0 +1,72 @@
+[gd_scene load_steps=15 format=3 uid="uid://d2oe7yi7w8m68"]
+
+[ext_resource type="Script" path="res://head.gd" id="1_qq3xb"]
+[ext_resource type="Script" path="res://grass.gd" id="2_3cyag"]
+[ext_resource type="PackedScene" uid="uid://b4jbaxwsjrb4" path="res://global/debughud.tscn" id="3_8ew5b"]
+[ext_resource type="PackedScene" uid="uid://dmgbou7y7jqjp" path="res://flatscenes/hud.tscn" id="5_frtgr"]
+[ext_resource type="PackedScene" uid="uid://dlxfx1cdack4v" path="res://global/youbal2.glb" id="5_jxpp0"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o0qyp"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_xl6jk"]
+sky_material = SubResource("ProceduralSkyMaterial_o0qyp")
+
+[sub_resource type="Environment" id="Environment_idofb"]
+background_mode = 2
+sky = SubResource("Sky_xl6jk")
+tonemap_mode = 2
+
+[sub_resource type="BoxMesh" id="BoxMesh_u0meq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jl80y"]
+albedo_color = Color(0, 0.329412, 0, 1)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_dadr4"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_p8b5v"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hdtcj"]
+albedo_color = Color(0.0117647, 0.219608, 0, 1)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_xbn6c"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[node name="head" type="Node3D"]
+script = ExtResource("1_qq3xb")
+
+[node name="hud" parent="." instance=ExtResource("5_frtgr")]
+
+[node name="debughud" parent="." instance=ExtResource("3_8ew5b")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_idofb")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="map" type="MeshInstance3D" parent="."]
+transform = Transform3D(87.1995, 0, 0, 0, 1, 0, 0, 0, 81.3968, 0, -0.37581, 0)
+mesh = SubResource("BoxMesh_u0meq")
+surface_material_override/0 = SubResource("StandardMaterial3D_jl80y")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="map"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="map/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_dadr4")
+
+[node name="grass" type="MeshInstance3D" parent="map"]
+transform = Transform3D(0.098685, 0, 0, 0, 0.360141, 0, 0, 0, 0.187746, 0.160374, 1.05385, -0.02087)
+mesh = SubResource("BoxMesh_p8b5v")
+surface_material_override/0 = SubResource("StandardMaterial3D_hdtcj")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="map/grass"]
+script = ExtResource("2_3cyag")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="map/grass/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_xbn6c")
+
+[node name="you" parent="." instance=ExtResource("5_jxpp0")]

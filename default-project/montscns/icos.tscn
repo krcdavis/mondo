@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://81i87x34fqw5"]
+
+[ext_resource type="PackedScene" uid="uid://dg2ppye61chfr" path="res://default-project/models-mons/icos.glb" id="1_p06lp"]
+
+[node name="icos" instance=ExtResource("1_p06lp")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)

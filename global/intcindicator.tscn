@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://c75inpg2pobf"]
+
+[ext_resource type="Script" path="res://global/intcindicator.gd" id="1_qj4os"]
+[ext_resource type="PackedScene" uid="uid://cq82mrut5dtpk" path="res://global/arrow.dae" id="2_tu7xv"]
+
+[node name="intcindicator" type="Area3D"]
+script = ExtResource("1_qj4os")
+
+[node name="arrow" parent="." instance=ExtResource("2_tu7xv")]
+transform = Transform3D(0.216476, 0, 0, 0, 0.216476, 0, 0, 0, 0.216476, 0, 0, 0)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

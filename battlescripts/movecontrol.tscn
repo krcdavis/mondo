@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://whu8d4fp7vgv"]
+
+[ext_resource type="Script" path="res://battlescripts/movecontrol.gd" id="1_l0aid"]
+
+[node name="movecontrol" type="Node2D"]
+script = ExtResource("1_l0aid")

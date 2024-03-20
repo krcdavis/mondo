@@ -1,0 +1,76 @@
+[gd_scene load_steps=5 format=3 uid="uid://cbahgw3kuk32j"]
+
+[ext_resource type="Script" path="res://global/textbox.gd" id="1_mqi4h"]
+[ext_resource type="Texture2D" uid="uid://dvftvk4gndi2c" path="res://default-project/flatresources/textbox.png" id="1_s8e41"]
+[ext_resource type="Texture2D" uid="uid://cul3s1egjwq2c" path="res://default-project/flatresources/ard.png" id="3_ixe4a"]
+[ext_resource type="Texture2D" uid="uid://b6guhewawso6" path="res://default-project/flatresources/btl-optn.png" id="4_ehvtw"]
+
+[node name="textbox" type="NinePatchRect"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -560.0
+offset_top = -172.0
+offset_right = 558.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("1_s8e41")
+patch_margin_left = 22
+patch_margin_top = 25
+patch_margin_right = 20
+patch_margin_bottom = 20
+script = ExtResource("1_mqi4h")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+clip_contents = false
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 21.0
+offset_top = -57.0
+offset_right = 739.0
+offset_bottom = 59.0
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 25
+text = "sdggdbxvb
+xdgbcxgdb
+bxcv"
+
+[node name="Timer" type="Timer" parent="RichTextLabel"]
+
+[node name="Timer2" type="Timer" parent="RichTextLabel"]
+
+[node name="arrow" type="Sprite2D" parent="RichTextLabel"]
+position = Vector2(1048, 118)
+texture = ExtResource("3_ixe4a")
+
+[node name="name" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = 21.0
+offset_top = -27.0
+offset_right = 236.0
+offset_bottom = 21.0
+texture = ExtResource("4_ehvtw")
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 7
+patch_margin_bottom = 7
+
+[node name="Label" type="Label" parent="name"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 10.0
+offset_top = -11.5
+offset_right = 50.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 22
+text = "how stretch aaaaaaaa"
