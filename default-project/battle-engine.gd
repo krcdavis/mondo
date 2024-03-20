@@ -15,6 +15,22 @@ func setup(battlescene):
 	#etc etc
 	textbox = btlhead.textbox
 
+func set_AI(slot):
+	#currently hardcoded for wild one-on-one and will be updated as things are added.
+	#simply pick a random (valid) move
+	#an array of [[index, moveid]]
+	var vmoves = []
+
+	#check each move for validity. technically this should be guaranteed on mon creation but oh well
+	for n in range(0,4):#replace 4 with whatever max move number you have
+		var mmove = slots[slot].mon.getmove(n)
+		if d.moves.move_isvalid(mmove):
+			vmoves.append( [n, mmove] )
+	var ranint = gb.rng.randi_range(0, vmoves.size())
+
+	slots[slot].set_movenext( slots[slot].mon.getmove(ranint), ranint, 0)
+
+
 
 func doamove(moncomp):
 	#ensure user exists and is still alive. else
@@ -26,7 +42,7 @@ func doamove(moncomp):
 
 func simplemove(moncomp):
 	#print("it's alive!")
-	var mv = d.moves.move_getmove(moncomp.movenext_id)
+	var _mv = d.moves.move_getmove(moncomp.movenext_id)
 	
 	var target = slots[moncomp.movenext_target]
 	var dm = d.moves.move_getdmg(moncomp.movenext_id)

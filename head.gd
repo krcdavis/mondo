@@ -21,9 +21,9 @@ func _ready():
 	text.visible = false
 	gb.head = self#i
 	#project data -> startup map -> change map to that
-	#changemap(["default-project/scenes-maps/map1","Node3D"])
+	changemap(["default-project/scenes-maps/map1","Node3D"])
 	#changemap(["pokemon-project/scenes-maps/010vani_aqu/vani_aqu_0001","yourdoor"])
-	changemap(["pokemon-project/scenes-maps/000junk/010_vville-early","yourdoor"])
+	#changemap(["pokemon-project/scenes-maps/000junk/010_vville-early","yourdoor"])
 	#res://.tscn
 	#also from project data, get and load basic battle scene(s)
 	btlw1v1 = load(d.get_datapath() + "/scenes-btl/btlw_1_on_1.tscn").instantiate()#need fix naem

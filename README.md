@@ -20,6 +20,8 @@ As an example, if you added secondary types to your mons, you'd want to account 
 
 **The head scene**: This scene basically manages everything else. The player node, pause menu, current map, etc are all children of this node, and it handles things like swapping maps, switching between overworld and battle scene, etc.
 
+**monster.gd and battlecomp.gd**: A basic monster (as in an individual mon, not a species), and a in-battle-companion-object that holds extra data for that mon while in battle (needs a better name).
+
 And so much more (spaghetti)
 
 
@@ -36,5 +38,6 @@ And so much more (spaghetti)
 --Somehow figure out how to implement activating things like animations while printing text to the text box. So like characters can react to something another character is saying. This is done by "control codes" in other games like Animal Crossing. I vaguely remember at some point finding a tutorial for how to call abritrary functions from a text box via custom BBCode effects, but I can't find it again.
 -Adding mons to your party, including gift mons and catching.
 -Different battle types, mainly trainer and double battles.
+-Functionality to extend monster and battlecomp objects.
 -EXP, evolution
 -saving

@@ -196,7 +196,7 @@ func exec_turn():
 	restate(INTURN)#this hides the menus
 	
 	slots[1].set_movenext("red1",0,0)#temp "ai"
-	#engine.set_ai(1)
+	engine.set_AI(1)
 	
 	for s in speedqueues: s.clear()
 	specialqueue.clear()
