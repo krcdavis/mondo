@@ -12,6 +12,6 @@ func _process(delta):
 		queue_free()
 	else:
 		timer -= 1
-		print(timer)
+		#print(timer)
 		#get colliding areas and like send them to head or something
 		#for thing in collidings, if not in collected_collidings append

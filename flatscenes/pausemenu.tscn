@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://dp2oy8nt6abqf"]
+
+[ext_resource type="Script" path="res://flatscenes/pausemenu.gd" id="1_lqamj"]
+[ext_resource type="PackedScene" uid="uid://chw45fuqosiee" path="res://flatscenes/pauseoptions.tscn" id="2_04m2b"]
+[ext_resource type="PackedScene" uid="uid://db5nhk0cg1svs" path="res://flatscenes/partymenu.tscn" id="3_likpx"]
+[ext_resource type="PackedScene" uid="uid://0ye6isli8isd" path="res://flatscenes/monmenu.tscn" id="4_h6152"]
+
+[node name="pausemenu" type="CanvasLayer"]
+script = ExtResource("1_lqamj")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 144.0
+offset_top = 85.0
+offset_right = 694.0
+offset_bottom = 262.0
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 84.0
+offset_top = 56.0
+offset_right = 334.0
+offset_bottom = 109.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "you are paused (:"
+
+[node name="pauseoptions" parent="." instance=ExtResource("2_04m2b")]
+position = Vector2(865, 26)
+
+[node name="partymenu" parent="." instance=ExtResource("3_likpx")]
+visible = false
+
+[node name="monmenu" parent="." instance=ExtResource("4_h6152")]
+visible = false

@@ -34,7 +34,7 @@ const species = {
 		tgbase:{
 			tghp:8,
 			tgatk:6,
-			tgdef:6,
+			tgdef:10,
 			tgspeed:6
 		},
 		tgability:"none",

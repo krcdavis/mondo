@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cum6h8qrwlw8o"]
+[gd_scene load_steps=4 format=3 uid="uid://cum6h8qrwlw8o"]
 
 [ext_resource type="Texture2D" uid="uid://sac17byr2k3w" path="res://default-project/flatresources/bg.png" id="1_jcyuf"]
 [ext_resource type="Texture2D" uid="uid://cofop6lvixw4o" path="res://default-project/flatresources/fill.png" id="2_oqytm"]
+[ext_resource type="Script" path="res://flatscenes/hpbar.gd" id="3_xmh5s"]
 
 [node name="hpbar" type="TextureProgressBar"]
 offset_right = 449.0
@@ -11,3 +12,4 @@ value = 55.0
 nine_patch_stretch = true
 texture_under = ExtResource("1_jcyuf")
 texture_progress = ExtResource("2_oqytm")
+script = ExtResource("3_xmh5s")

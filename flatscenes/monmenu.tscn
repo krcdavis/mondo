@@ -1,0 +1,408 @@
+[gd_scene load_steps=6 format=3 uid="uid://0ye6isli8isd"]
+
+[ext_resource type="Script" path="res://flatscenes/monmenu.gd" id="1_au545"]
+[ext_resource type="Texture2D" uid="uid://c0jk4kkof556o" path="res://flatscenes/summy.png" id="1_gk56r"]
+[ext_resource type="Texture2D" uid="uid://c7emws24vyku5" path="res://icon.svg" id="3_e2x5i"]
+[ext_resource type="PackedScene" uid="uid://c3wpwbyikxh20" path="res://flatscenes/optbase.tscn" id="4_2mcat"]
+[ext_resource type="PackedScene" uid="uid://cum6h8qrwlw8o" path="res://flatscenes/hpbar.tscn" id="5_1k0dk"]
+
+[node name="monmenu" type="Node2D"]
+script = ExtResource("1_au545")
+
+[node name="Summy" type="Sprite2D" parent="."]
+position = Vector2(13, 15)
+scale = Vector2(4.6875, 3.84375)
+texture = ExtResource("1_gk56r")
+centered = false
+
+[node name="monimg" type="Sprite2D" parent="."]
+position = Vector2(952, 310)
+scale = Vector2(1.73438, 1.625)
+texture = ExtResource("3_e2x5i")
+
+[node name="nametg" parent="." instance=ExtResource("4_2mcat")]
+position = Vector2(774, 81)
+
+[node name="NinePatchRect2" parent="nametg" index="0"]
+visible = false
+
+[node name="NinePatchRect" parent="nametg" index="1"]
+offset_right = 280.0
+offset_bottom = 52.0
+
+[node name="Arr" parent="nametg" index="2"]
+visible = false
+
+[node name="Label" parent="nametg" index="3"]
+offset_left = 14.0
+offset_top = 7.0
+offset_right = 252.0
+offset_bottom = 43.0
+theme_override_font_sizes/font_size = 26
+
+[node name="br" parent="nametg" index="4"]
+visible = false
+
+[node name="move1" parent="." instance=ExtResource("4_2mcat")]
+position = Vector2(66, 384)
+
+[node name="NinePatchRect2" parent="move1" index="0"]
+visible = false
+
+[node name="NinePatchRect" parent="move1" index="1"]
+offset_right = 280.0
+offset_bottom = 52.0
+
+[node name="Arr" parent="move1" index="2"]
+visible = false
+
+[node name="Label" parent="move1" index="3"]
+offset_left = 14.0
+offset_top = 7.0
+offset_right = 252.0
+offset_bottom = 43.0
+theme_override_font_sizes/font_size = 26
+
+[node name="br" parent="move1" index="4"]
+visible = false
+
+[node name="move2" parent="." instance=ExtResource("4_2mcat")]
+position = Vector2(66, 444)
+
+[node name="NinePatchRect2" parent="move2" index="0"]
+visible = false
+
+[node name="NinePatchRect" parent="move2" index="1"]
+offset_right = 280.0
+offset_bottom = 52.0
+
+[node name="Arr" parent="move2" index="2"]
+visible = false
+
+[node name="Label" parent="move2" index="3"]
+offset_left = 14.0
+offset_top = 7.0
+offset_right = 252.0
+offset_bottom = 43.0
+theme_override_font_sizes/font_size = 26
+
+[node name="br" parent="move2" index="4"]
+visible = false
+
+[node name="move3" parent="." instance=ExtResource("4_2mcat")]
+position = Vector2(66, 504)
+
+[node name="NinePatchRect2" parent="move3" index="0"]
+visible = false
+
+[node name="NinePatchRect" parent="move3" index="1"]
+offset_right = 280.0
+offset_bottom = 52.0
+
+[node name="Arr" parent="move3" index="2"]
+visible = false
+
+[node name="Label" parent="move3" index="3"]
+offset_left = 14.0
+offset_top = 7.0
+offset_right = 252.0
+offset_bottom = 43.0
+theme_override_font_sizes/font_size = 26
+
+[node name="br" parent="move3" index="4"]
+visible = false
+
+[node name="move4" parent="." instance=ExtResource("4_2mcat")]
+position = Vector2(66, 563)
+
+[node name="NinePatchRect2" parent="move4" index="0"]
+visible = false
+
+[node name="NinePatchRect" parent="move4" index="1"]
+offset_right = 280.0
+offset_bottom = 52.0
+
+[node name="Arr" parent="move4" index="2"]
+visible = false
+
+[node name="Label" parent="move4" index="3"]
+offset_left = 14.0
+offset_top = 7.0
+offset_right = 252.0
+offset_bottom = 43.0
+theme_override_font_sizes/font_size = 26
+
+[node name="br" parent="move4" index="4"]
+visible = false
+
+[node name="leveltg" parent="." instance=ExtResource("4_2mcat")]
+position = Vector2(774, 137)
+
+[node name="NinePatchRect2" parent="leveltg" index="0"]
+visible = false
+
+[node name="NinePatchRect" parent="leveltg" index="1"]
+offset_right = 131.0
+offset_bottom = 52.0
+
+[node name="Arr" parent="leveltg" index="2"]
+visible = false
+
+[node name="Label" parent="leveltg" index="3"]
+offset_left = 39.0
+offset_top = 9.0
+offset_right = 123.0
+theme_override_font_sizes/font_size = 26
+text = "AAA"
+
+[node name="br" parent="leveltg" index="4"]
+visible = false
+
+[node name="Label2" type="Label" parent="leveltg"]
+offset_left = 10.0
+offset_top = 12.0
+offset_right = 50.0
+offset_bottom = 35.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "LV"
+
+[node name="exptg" parent="." instance=ExtResource("4_2mcat")]
+position = Vector2(817, 467)
+
+[node name="NinePatchRect2" parent="exptg" index="0"]
+visible = false
+
+[node name="NinePatchRect" parent="exptg" index="1"]
+offset_right = 160.0
+offset_bottom = 40.0
+
+[node name="Arr" parent="exptg" index="2"]
+visible = false
+
+[node name="Label" parent="exptg" index="3"]
+offset_left = 57.0
+offset_top = 1.0
+offset_right = 158.0
+offset_bottom = 37.0
+theme_override_font_sizes/font_size = 26
+text = "AAA"
+
+[node name="br" parent="exptg" index="4"]
+visible = false
+
+[node name="Label2" type="Label" parent="exptg"]
+offset_left = 11.0
+offset_top = 8.0
+offset_right = 51.0
+offset_bottom = 31.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "exp:"
+
+[node name="hptg" parent="." instance=ExtResource("4_2mcat")]
+position = Vector2(100, 101)
+
+[node name="NinePatchRect2" parent="hptg" index="0"]
+visible = false
+
+[node name="NinePatchRect" parent="hptg" index="1"]
+offset_right = 160.0
+offset_bottom = 40.0
+
+[node name="Arr" parent="hptg" index="2"]
+visible = false
+
+[node name="Label" parent="hptg" index="3"]
+offset_left = 57.0
+offset_top = 1.0
+offset_right = 158.0
+offset_bottom = 37.0
+theme_override_font_sizes/font_size = 26
+text = "AAA"
+
+[node name="br" parent="hptg" index="4"]
+visible = false
+
+[node name="Label2" type="Label" parent="hptg"]
+offset_left = 11.0
+offset_top = 8.0
+offset_right = 51.0
+offset_bottom = 31.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "HP:"
+
+[node name="tonexttg" parent="." instance=ExtResource("4_2mcat")]
+position = Vector2(817, 517)
+
+[node name="NinePatchRect2" parent="tonexttg" index="0"]
+visible = false
+
+[node name="NinePatchRect" parent="tonexttg" index="1"]
+offset_right = 183.0
+offset_bottom = 40.0
+
+[node name="Arr" parent="tonexttg" index="2"]
+visible = false
+
+[node name="Label" parent="tonexttg" index="3"]
+offset_left = 116.0
+offset_top = 1.0
+offset_right = 167.0
+offset_bottom = 37.0
+theme_override_font_sizes/font_size = 26
+text = "AAA"
+
+[node name="br" parent="tonexttg" index="4"]
+visible = false
+
+[node name="Label2" type="Label" parent="tonexttg"]
+offset_left = 11.0
+offset_top = 8.0
+offset_right = 51.0
+offset_bottom = 31.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "to next level:"
+
+[node name="atktg" parent="." instance=ExtResource("4_2mcat")]
+position = Vector2(68, 150)
+
+[node name="NinePatchRect2" parent="atktg" index="0"]
+visible = false
+
+[node name="NinePatchRect" parent="atktg" index="1"]
+offset_right = 131.0
+offset_bottom = 52.0
+
+[node name="Arr" parent="atktg" index="2"]
+visible = false
+
+[node name="Label" parent="atktg" index="3"]
+offset_left = 39.0
+offset_top = 9.0
+offset_right = 123.0
+theme_override_font_sizes/font_size = 26
+text = "AAA"
+
+[node name="br" parent="atktg" index="4"]
+visible = false
+
+[node name="Label2" type="Label" parent="atktg"]
+offset_left = 10.0
+offset_top = 12.0
+offset_right = 50.0
+offset_bottom = 35.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "atk"
+
+[node name="deftg" parent="." instance=ExtResource("4_2mcat")]
+position = Vector2(68, 207)
+
+[node name="NinePatchRect2" parent="deftg" index="0"]
+visible = false
+
+[node name="NinePatchRect" parent="deftg" index="1"]
+offset_right = 131.0
+offset_bottom = 52.0
+
+[node name="Arr" parent="deftg" index="2"]
+visible = false
+
+[node name="Label" parent="deftg" index="3"]
+offset_left = 39.0
+offset_top = 9.0
+offset_right = 123.0
+theme_override_font_sizes/font_size = 26
+text = "AAA"
+
+[node name="br" parent="deftg" index="4"]
+visible = false
+
+[node name="Label2" type="Label" parent="deftg"]
+offset_left = 10.0
+offset_top = 12.0
+offset_right = 50.0
+offset_bottom = 35.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "def"
+
+[node name="speedtg" parent="." instance=ExtResource("4_2mcat")]
+position = Vector2(68, 268)
+
+[node name="NinePatchRect2" parent="speedtg" index="0"]
+visible = false
+
+[node name="NinePatchRect" parent="speedtg" index="1"]
+offset_right = 131.0
+offset_bottom = 52.0
+
+[node name="Arr" parent="speedtg" index="2"]
+visible = false
+
+[node name="Label" parent="speedtg" index="3"]
+offset_left = 39.0
+offset_top = 9.0
+offset_right = 123.0
+theme_override_font_sizes/font_size = 26
+text = "AAA"
+
+[node name="br" parent="speedtg" index="4"]
+visible = false
+
+[node name="Label2" type="Label" parent="speedtg"]
+offset_left = 10.0
+offset_top = 12.0
+offset_right = 50.0
+offset_bottom = 35.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "spd"
+
+[node name="statustg" parent="." instance=ExtResource("4_2mcat")]
+position = Vector2(917, 137)
+
+[node name="NinePatchRect2" parent="statustg" index="0"]
+visible = false
+
+[node name="NinePatchRect" parent="statustg" index="1"]
+offset_right = 131.0
+offset_bottom = 52.0
+
+[node name="Arr" parent="statustg" index="2"]
+visible = false
+
+[node name="Label" parent="statustg" index="3"]
+offset_left = 16.0
+offset_top = 7.0
+offset_right = 100.0
+offset_bottom = 43.0
+theme_override_font_sizes/font_size = 26
+text = "OK"
+
+[node name="br" parent="statustg" index="4"]
+visible = false
+
+[node name="hpbar" parent="." instance=ExtResource("5_1k0dk")]
+offset_left = 54.0
+offset_top = 68.0
+offset_right = 503.0
+offset_bottom = 121.0
+
+[node name="expbar" parent="." instance=ExtResource("5_1k0dk")]
+offset_left = 804.0
+offset_top = 432.0
+offset_right = 1253.0
+offset_bottom = 470.0
+tint_under = Color(1, 1, 0, 1)
+tint_progress = Color(0.619608, 0.415686, 1, 1)
+
+[editable path="nametg"]
+[editable path="move1"]
+[editable path="move2"]
+[editable path="move3"]
+[editable path="move4"]
+[editable path="leveltg"]
+[editable path="exptg"]
+[editable path="hptg"]
+[editable path="tonexttg"]
+[editable path="atktg"]
+[editable path="deftg"]
+[editable path="speedtg"]
+[editable path="statustg"]

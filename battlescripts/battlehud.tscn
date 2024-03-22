@@ -20,4 +20,5 @@ visible = false
 position = Vector2(751, 264)
 
 [node name="movecontrol" parent="." instance=ExtResource("5_m3i2l")]
+visible = false
 position = Vector2(913, 251)

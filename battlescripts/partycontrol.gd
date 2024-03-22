@@ -10,7 +10,7 @@ func _ready():
 		#actives.append( items[n] )
 		items[n].add_data("index", n)
 	items[-1].setlabel("Back")
-	place_items(xd-15,yd+8,15)
+	place_items(5,8,15)
 	active_all()
 	sizer()
 	update_cursor()

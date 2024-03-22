@@ -6,6 +6,9 @@ extends Node2D
 var metadata = {}
 
 @onready var br = $br
+@onready var activ = $NinePatchRect
+@onready var xdel = br.position.x
+@onready var ydel = br.position.y
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,9 +18,9 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	#while arr visible, animate lightly jostling +-x
-	pass
+#func _process(_delta):
+	##while arr visible, animate lightly jostling +-x
+	#pass
 
 #func highlight on/off, change $Arr visibility
 func highlight(setting = true):
@@ -27,8 +30,9 @@ func setlabel(st = "--"):
 	$Label.text = st
 
 func activate(act = false, string = "---"):
+	visible = true#used for pause options menu...
 	setlabel(string)
-	$Sprite2D2.visible = act
+	activ.visible = act
 	$Arr.visible = act
 
 

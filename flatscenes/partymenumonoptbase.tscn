@@ -1,0 +1,67 @@
+[gd_scene load_steps=6 format=3 uid="uid://d1c3iw1dpt8wm"]
+
+[ext_resource type="PackedScene" uid="uid://c3wpwbyikxh20" path="res://flatscenes/optbase.tscn" id="1_nv2ll"]
+[ext_resource type="Script" path="res://flatscenes/partymenumonoptbase.gd" id="2_6g1fa"]
+[ext_resource type="Texture2D" uid="uid://b6guhewawso6" path="res://default-project/flatresources/btl-optn.png" id="2_gpwbj"]
+[ext_resource type="Texture2D" uid="uid://c7emws24vyku5" path="res://icon.svg" id="3_umrsa"]
+[ext_resource type="PackedScene" uid="uid://cum6h8qrwlw8o" path="res://flatscenes/hpbar.tscn" id="4_6y5st"]
+
+[node name="monoptbase" instance=ExtResource("1_nv2ll")]
+script = ExtResource("2_6g1fa")
+
+[node name="NinePatchRect3" type="NinePatchRect" parent="." index="0"]
+offset_right = 318.0
+offset_bottom = 130.0
+texture = ExtResource("2_gpwbj")
+patch_margin_left = 5
+patch_margin_top = 10
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="NinePatchRect2" parent="." index="1"]
+visible = false
+
+[node name="NinePatchRect" parent="." index="2"]
+offset_bottom = 47.0
+
+[node name="Arr" parent="." index="3"]
+position = Vector2(-19, 35)
+
+[node name="Label" parent="." index="4"]
+offset_left = 23.0
+offset_top = 14.0
+offset_right = 184.0
+offset_bottom = 39.0
+
+[node name="Label2" type="Label" parent="." index="5"]
+offset_left = 35.0
+offset_top = 43.0
+offset_right = 196.0
+offset_bottom = 68.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "LV 69"
+
+[node name="br" parent="." index="6"]
+position = Vector2(319, 131)
+
+[node name="monsprite" type="Sprite2D" parent="." index="7"]
+position = Vector2(254, 65)
+scale = Vector2(0.765625, 0.71875)
+texture = ExtResource("3_umrsa")
+
+[node name="statussprite" type="Sprite2D" parent="." index="8"]
+position = Vector2(178, 55)
+scale = Vector2(0.289062, 0.1875)
+texture = ExtResource("3_umrsa")
+
+[node name="hpbar" parent="." index="9" instance=ExtResource("4_6y5st")]
+offset_left = 14.0
+offset_top = 72.0
+offset_right = 296.0
+offset_bottom = 105.0
+
+[node name="hpbar2" parent="." index="10" instance=ExtResource("4_6y5st")]
+offset_left = 18.0
+offset_top = 101.0
+offset_right = 269.0
+offset_bottom = 122.0

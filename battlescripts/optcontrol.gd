@@ -8,7 +8,7 @@ func _ready():
 	for n in range(0,4):
 		instance_item(baseopts[n])
 		#actives.append( items[n] )
-	place_items(xd,yd+8)
+	place_items(4,8)
 	active_all()
 	sizer()
 	update_cursor()

@@ -14,16 +14,12 @@ var qhp: int
 var qattack: int
 var qdefense: int
 var qspeed: int
-var qluck: int
-var qskill: int
 
 #gained stats ala EVs
 var ghp: int#etc
 var gattack: int
 var gspeed: int
 var gdefense: int
-var gluck: int
-var gskill: int
 
 #calculated stats and current health using species data; next, include unique and gained
 var hp: int#max
@@ -31,8 +27,6 @@ var health: int#current
 var attack: int
 var speed: int
 var defense: int
-var luck: int
-var skill: int
 #chp, etc is used for in-battle calced stats for battlecomp
 
 #var moveset = ["","","",""]#this will be remov
@@ -64,8 +58,6 @@ func setstats(helth = -1):
 		
 		attack = setstat(d.sph.getstg(species_id, tgatk))#don't worry this works (:
 		defense = setstat(d.sph.getstg(species_id, tgdef))
-		#luck = setstat(d.species.getstg(species_id, tgluck))
-		#skill = setstat(d.species.getstg(species_id, tgskill))
 		speed = setstat(d.sph.getstg(species_id, tgspeed))
 		#hp be what
 		hp = setstat(d.sph.getstg(species_id, tghp)) + level

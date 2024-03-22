@@ -6,15 +6,18 @@ func _ready():
 	pass # Replace with function body.
 
 #should contain the logic for laying out items in a single column
-func place_items(yy = -1):
-	var yyy = yy
-	if yy == -1:#use default yd from menubase... or optbase
-		#i don't know why this doesn't seem to be working
-		yyy = yd
+func place_items(yplus = 0):
+	
+	#var xxx = items[0].xdel + xplus
+	var yy = items[0].ydel + yplus
+	#var yyy = yy
+	#if yy == -1:#use default yd from menubase... or optbase
+		##i don't know why this doesn't seem to be working
+		#yyy = yd
 	
 	var n = 0
 	for it in items:
-		it.position += Vector2(0,yy*n)
+		it.position = Vector2(0,yy*n)
 		n += 1
 	
 	print( items[-1].position )
@@ -23,19 +26,14 @@ func place_items(yy = -1):
 #func _process(delta):
 	#pass
 
+#some of this, namely instantiating items, can be moved to menubase,
+#and then shared with create_empty_menu
+#but item-placing code is of course different per menu type
 func create_menu(num,list):
 	
-	for n in range(0,num):
-		instance_item(list[n])
-		#items[n].setlabel(list[n])
-		#optbase's own ready function calls setlabel after instancing... sometimes... seemingly fixed
-		items[n].add_data("index", n)
-		items[n].add_data("data", list[n])
-	
-	active_all()
+	base_create_menu(num,list)
+	#await?
 	place_items(yd)
-	sizer()
-	update_cursor()
 	
 	
 

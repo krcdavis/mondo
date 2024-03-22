@@ -1,29 +1,54 @@
 extends "res://global/menubase.gd"
+class_name twocolumnenu
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
-func place_items(xx=-1,yy=-1,oddset=0):
-	var xxx
-	if xx == -1:
-		xxx = xd
-	else:
-		xxx = xx
-	#this works but the other way doesn't i guess (shrug)
+#now change to use optbase's set xdel and ydel pls.
+func place_items(xplus=0,yplus=0,oddset=0):
+	#you should have at least one item by now so just use items[0].xdel
+	if items.size() == 0: return
 	
-	var yyy = yy
-	if yy == -1:#use default yd from menubase... or optbase
-		#i don't know why this doesn't seem to be working
-		yyy = yd
-	#do the same for x except don;t because it doesn't work ):
+	var xxx = items[0].xdel + xplus
+	var yy = items[0].ydel + yplus
 	
 	var n = 0
 	for it in items:
 		#for y, add oddset*(n%1)
-		it.position += Vector2(xxx*(n%2),yy*int(n/2) + oddset*(n%2))
+		#is this plus or equal?
+		it.position = Vector2(xxx*(n%2),yy*int(n/2) + oddset*(n%2))
 		n += 1
+
+func create_menu(num,list):
+	
+	for n in range(0,num):
+		instance_item(list[n])
+		#items[n].setlabel(list[n])
+		#optbase's own ready function calls setlabel after instancing... sometimes... seemingly fixed
+		items[n].add_data("index", n)
+		items[n].add_data("data", list[n])
+	
+	active_all()
+	place_items(yd)
+	sizer()
+	update_cursor()
+	
+func create_empty_menu(num, place = true):
+	
+	for n in range(0,num):
+		instance_item("--")
+		#items[n].setlabel(list[n])
+		#optbase's own ready function calls setlabel after instancing... sometimes... seemingly fixed
+		items[n].add_data("index", n)
+		#items[n].add_data("data", list[n])
+	
+	active_all()
+	if place: place_items(yd)
+	sizer()
+	update_cursor()
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

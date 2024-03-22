@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://db5nhk0cg1svs"]
+
+[ext_resource type="Texture2D" uid="uid://b377vokjfv1f" path="res://default-project/flatresources/btl_right_small.png" id="1_31b0r"]
+[ext_resource type="Script" path="res://flatscenes/partymenu.gd" id="1_om8as"]
+
+[node name="partymenu" type="Node2D"]
+script = ExtResource("1_om8as")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+offset_left = 17.0
+offset_top = 19.0
+offset_right = 1130.0
+offset_bottom = 626.0
+texture = ExtResource("1_31b0r")
+patch_margin_left = 15
+patch_margin_top = 30
+patch_margin_right = 30
+patch_margin_bottom = 10
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(160, 47)

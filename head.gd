@@ -1,6 +1,7 @@
 extends mscripttags#hope this never needs any node3d functs
 
 var mode = "you"
+var storemode = ""#?
 #current map and temp map
 var cmap
 var tmap
@@ -9,6 +10,7 @@ var btlw1v1
 #things
 @onready var you = $you
 @onready var hud = $hud
+@onready var phud = $pausemenu
 @onready var text = $hud/textbox
 
 signal scrdone
@@ -17,14 +19,18 @@ signal scriptdone
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	you.head = self
+	hud.head = self
+	phud.head = self
+	phud.visible = false
 	cmap = $map
 	text.visible = false
 	gb.head = self#i
+	hud.visible = false
 	#project data -> startup map -> change map to that
 	changemap(["default-project/scenes-maps/map1","Node3D"])
 	#changemap(["pokemon-project/scenes-maps/010vani_aqu/vani_aqu_0001","yourdoor"])
 	#changemap(["pokemon-project/scenes-maps/000junk/010_vville-early","yourdoor"])
-	#res://.tscn
+	
 	#also from project data, get and load basic battle scene(s)
 	btlw1v1 = load(d.get_datapath() + "/scenes-btl/btlw_1_on_1.tscn").instantiate()#need fix naem
 	add_child(btlw1v1)
@@ -35,6 +41,21 @@ func _ready():
 # process...
 #func _process(delta):
 	#pass
+
+func pause():
+	#pause map (everything in it should be set to inherit), player, whatever else
+	#pausing is handled by player and from there is limited to when the player can usually act
+	#(eg, when free to walk around, when not in the middle of jumping off a ledge, etc)
+	#and show/activate the pause menu
+	
+	phud.visible = true
+	storemode = mode
+	mode = "pause"
+
+func unpause():
+	#undoes pause, on closing the pause menu.
+	phud.visible = false
+	mode = storemode
 
 #var datapath = "res://"#...
 func changemap(mapdata):#[map tscn name, point name]- point can be ignored for now (:

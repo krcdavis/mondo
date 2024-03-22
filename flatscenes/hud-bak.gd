@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 var mode
+
 var head
 
 var activemenu
@@ -19,7 +20,10 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	#match mode, menu etc
-	match mode:
+	match head.mode:
+		"pause":
+			if Input.is_action_just_pressed("ui_accept"):
+				print("lol")
 		"actmenu":
 				if Input.is_action_just_pressed("ui_up"):
 					activemenu.update_cursor("UP")#well it doesn't complain at least
@@ -34,7 +38,7 @@ func _process(_delta):
 					activemenu.default_execute_cursor()
 					#then move on... emit signal?
 
-#const flavorlist = ['apple','cherry','lemon','lime','grape']
+const flavorlist = ['apple','cherry','lemon','lime','grape']
 
 
 #designed such that new menus are made on the fly and discarded when the next menu is made.

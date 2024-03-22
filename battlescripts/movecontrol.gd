@@ -9,7 +9,7 @@ func _ready():
 		instance_item("aa\naa")
 		actives.append( items[n] )
 	items[4].setlabel("back")
-	place_items(yd)
+	place_items(5)
 	sizer()
 	update_cursor()
 
