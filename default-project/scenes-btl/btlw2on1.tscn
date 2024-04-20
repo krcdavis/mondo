@@ -1,0 +1,69 @@
+[gd_scene load_steps=11 format=3 uid="uid://3c3ykv81a7rf"]
+
+[ext_resource type="Script" path="res://battlescripts/btlw2on1.gd" id="1_5rh8v"]
+[ext_resource type="PackedScene" uid="uid://dnm05icq701g3" path="res://default-project/scenes-btl/battletest_temp_2.tscn" id="1_m183r"]
+[ext_resource type="PackedScene" uid="uid://uin686q1l41i" path="res://cyoob.tscn" id="3_eb683"]
+[ext_resource type="Script" path="res://global/hide.gd" id="4_8t4w6"]
+[ext_resource type="PackedScene" uid="uid://b0cx4g6ewnoto" path="res://battlescripts/battlehud.tscn" id="5_1hp4y"]
+[ext_resource type="PackedScene" uid="uid://b7nmf3en84o7y" path="res://flatscenes/btl_right_small.tscn" id="6_8cv0m"]
+[ext_resource type="PackedScene" uid="uid://dll8f4oyqv7q5" path="res://flatscenes/btl_left_small.tscn" id="7_taci8"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2m2h1"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_51ipv"]
+sky_material = SubResource("ProceduralSkyMaterial_2m2h1")
+
+[sub_resource type="Environment" id="Environment_x2rto"]
+background_mode = 2
+background_energy_multiplier = 0.95
+sky = SubResource("Sky_51ipv")
+tonemap_mode = 2
+
+[node name="btlw2on1" type="Node3D"]
+script = ExtResource("1_5rh8v")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_x2rto")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.577855, 0.706799, -0.408068, 0, 0.499998, 0.866027, 0.81614, -0.500437, 0.288926, -9.42, 29.277, 28.672)
+light_energy = 0.785
+light_indirect_energy = 0.965
+shadow_enabled = true
+
+[node name="battletest temp 2" parent="." instance=ExtResource("1_m183r")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.626604, 0.0990263, -0.773021, 0, 0.991894, 0.127065, 0.779338, -0.0796192, 0.621525, -37.213, 40.712, 44.339)
+fov = 37.5
+
+[node name="point0" type="Node3D" parent="."]
+transform = Transform3D(-0.989521, 0, 0.144391, 0, 1, 0, -0.144391, 0, -0.989521, 8.4, 29.277, 30.962)
+
+[node name="cyoob" parent="point0" instance=ExtResource("3_eb683")]
+script = ExtResource("4_8t4w6")
+
+[node name="point1" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.02628, 29.2769, -29.6674)
+
+[node name="cyoob" parent="point1" instance=ExtResource("3_eb683")]
+script = ExtResource("4_8t4w6")
+
+[node name="point2" type="Node3D" parent="."]
+transform = Transform3D(-0.908508, 0, 0.417867, 0, 1, 0, -0.417867, 0, -0.908508, -9.42, 29.277, 28.672)
+
+[node name="cyoob" parent="point2" instance=ExtResource("3_eb683")]
+script = ExtResource("4_8t4w6")
+
+[node name="battlehud" parent="." instance=ExtResource("5_1hp4y")]
+
+[node name="label0" parent="." instance=ExtResource("7_taci8")]
+position = Vector2(28, 234)
+
+[node name="label1" parent="." instance=ExtResource("6_8cv0m")]
+position = Vector2(848, 11)
+
+[node name="label2" parent="." instance=ExtResource("7_taci8")]
+position = Vector2(170, 340)

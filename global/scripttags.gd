@@ -1,5 +1,6 @@
-extends Node#...........
+extends Node
 class_name scripttags
+#to do: move file to basescripttags.gd?
 
 const tgspecies = "species"
 const tgname = "name"
@@ -41,9 +42,12 @@ const anm = "anim"
 const twn = "twn"
 const trg = "targt"
 const wait = "wait"
-const prop = "proprty"
+const dclr = "disableclear"
+const prop = "property"
 const end = "end"
 const tme = "time"
+const scam = "switchcam"
+const menu = "menu"
 
 const SQ7 = 0
 const SQ2 = 1

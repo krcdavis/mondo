@@ -55,3 +55,4 @@ func execute_cursor(slot = 0, target = 1):
 	#finally...
 	#btlhead.restate(btlhead.EXECTURN)
 		btlhead.exec_turn()
+		#next: replace with some return to btlhead to check next step

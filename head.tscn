@@ -1,9 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://d2oe7yi7w8m68"]
+[gd_scene load_steps=15 format=3 uid="uid://d2oe7yi7w8m68"]
 
 [ext_resource type="Script" path="res://head.gd" id="1_qq3xb"]
 [ext_resource type="Script" path="res://grass.gd" id="2_3cyag"]
 [ext_resource type="PackedScene" uid="uid://b4jbaxwsjrb4" path="res://global/debughud.tscn" id="3_8ew5b"]
-[ext_resource type="PackedScene" uid="uid://dp2oy8nt6abqf" path="res://flatscenes/pausemenu.tscn" id="3_xu0aj"]
 [ext_resource type="PackedScene" uid="uid://dmgbou7y7jqjp" path="res://flatscenes/hud.tscn" id="5_frtgr"]
 [ext_resource type="PackedScene" uid="uid://dlxfx1cdack4v" path="res://global/youbal2.glb" id="5_jxpp0"]
 
@@ -40,8 +39,6 @@ script = ExtResource("1_qq3xb")
 
 [node name="hud" parent="." instance=ExtResource("5_frtgr")]
 
-[node name="pausemenu" parent="." instance=ExtResource("3_xu0aj")]
-
 [node name="debughud" parent="." instance=ExtResource("3_8ew5b")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -73,3 +70,5 @@ script = ExtResource("2_3cyag")
 shape = SubResource("ConcavePolygonShape3D_xbn6c")
 
 [node name="you" parent="." instance=ExtResource("5_jxpp0")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

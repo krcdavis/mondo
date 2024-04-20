@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxxi33fqy6qsx"]
+
+[ext_resource type="PackedScene" uid="uid://b8aid3aoo8ij4" path="res://default-project/models-etc/background.glb" id="1_j386e"]
+[ext_resource type="Script" path="res://default-project/scenes-maps/background.gd" id="2_e31p5"]
+
+[node name="background" instance=ExtResource("1_j386e")]
+script = ExtResource("2_e31p5")

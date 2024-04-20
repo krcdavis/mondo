@@ -8,19 +8,19 @@ var activescount = 0
 var cursor = 0
 
 
-var xd = 220
-var yd = 64
+#var xd = 220
+#var yd = 64
 
 var btlhead#only used for battlehud menus...
 
 signal menuresult
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+#func _ready():
+	#pass # Replace with function body.
 
 #this works!! hooray!!!
-func set_optbase(stri):
+func set_optbase(stri = "res://flatscenes/optbase.tscn"):
 	#unload item and replace with preload(stri)
 	#item.queue_free()#does this need to be done?
 	item = load(stri)
@@ -48,6 +48,7 @@ func instance_item(text, namey = ""):
 	return itemst#or the calling function could just use items[n]
 
 #plus option to send in an empty list...
+#also you don't really need to send in the number
 func base_create_menu(num,list):
 	
 	for n in range(0,num):

@@ -10,3 +10,5 @@ script = ExtResource("1_lgcoj")
 
 [node name="menupt" type="Node2D" parent="."]
 position = Vector2(1099, 471)
+
+[editable path="textbox"]

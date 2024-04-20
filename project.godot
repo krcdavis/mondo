@@ -21,6 +21,7 @@ d="*res://global/data_handler.gd"
 gb="*res://global/global.gd"
 party="*res://global/party.gd"
 dt="*res://monstar-project/mscripttags.gd"
+s="*res://global/saveloader.gd"
 
 [input]
 

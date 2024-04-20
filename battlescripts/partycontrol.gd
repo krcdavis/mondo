@@ -66,4 +66,5 @@ func execute_cursor(slot = 0):
 		#if done with all mons on your side...
 		else:#this should be fine
 			btlhead.exec_turn()
+			#next: return to btlhead to determine next step
 	

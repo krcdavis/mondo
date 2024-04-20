@@ -33,8 +33,8 @@ func create_menu(num,list):
 	
 	base_create_menu(num,list)
 	#await?
-	place_items(yd)
-	
+	place_items(0)#does this even need doing
+	update_cursor()
 	
 
 #tall menu

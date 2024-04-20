@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://b7nmf3en84o7y"]
+[gd_scene load_steps=5 format=3 uid="uid://b7nmf3en84o7y"]
 
 [ext_resource type="Texture2D" uid="uid://b377vokjfv1f" path="res://default-project/flatresources/btl_right_small.png" id="1_xpcme"]
 [ext_resource type="PackedScene" uid="uid://cum6h8qrwlw8o" path="res://flatscenes/hpbar.tscn" id="2_6q0nl"]
 [ext_resource type="Script" path="res://flatscenes/btl_label.gd" id="2_qxanx"]
+[ext_resource type="Texture2D" uid="uid://duxinjd1wi3x8" path="res://default-project/flatresources/arr.png" id="4_83ag8"]
 
 [node name="BtlRightSmall" type="Sprite2D"]
 texture = ExtResource("1_xpcme")
@@ -29,3 +30,8 @@ offset_top = 30.0
 offset_right = 284.0
 offset_bottom = 54.0
 text = "lv xxx"
+
+[node name="Arr" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-7, 45)
+texture = ExtResource("4_83ag8")

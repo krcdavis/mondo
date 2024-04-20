@@ -25,10 +25,9 @@ func _ready():
 
 func _on_thedoor_body_entered(body):
 	if body.name == "you":
-		pass
-		#head.changemap(["default-project/scenes-maps/map1","Node3D"])
+		head.changemap(["default-project/tscnsmaps/map2","Node3D"])
 
-const signq = {typ: txt, txt: "What flavor do you want??",wait: "menu"}
+const signq = {typ: txt, txt: "What flavor do[testx]f[/testx] you want??",wait: "menu"}
 #{typ:menu,mtype:long, list:flavorlist} ...
 const flavorlist = ['apple','cherry','lemon','lime','grape']
 

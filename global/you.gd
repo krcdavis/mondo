@@ -23,14 +23,14 @@ var cdb = .5#count down by...
 @onready var area = $"player-area"
 @onready var vis = $visual
 @onready var intp = $visual/intpoint
-@onready var anim = $visual/model/serenahandler.anim
+#@onready var anim = $visual/model/serenahandler.anim
 var mode = ""
 
 #remember to set area colis mask 2 to true btw
 func _ready():
 	pass
 	#anim.get_animation("walk1").set_loop(true)#lol
-	anim.play("idlestand")
+	#anim.play("idlestand")
 
 func _physics_process(delta):
 	var tempanim = "idlestand"
@@ -44,7 +44,7 @@ func _physics_process(delta):
 			#intp.spawnsphere()
 			#var il = intp.get_overlapping_bodies()
 			#for im in il:
-				##print(im.name)#this is necessary apparently
+				#print(im.name)#this is necessary apparently
 				#if im.has_method("interaction"):#add to interaction queue or stg
 					#im.interaction()
 				#break out of for loop.
@@ -106,6 +106,6 @@ func _physics_process(delta):
 			
 			move_and_slide()
 			
-			if anim.get_current_animation() != tempanim:
-				anim.play(tempanim)
+			#if anim.get_current_animation() != tempanim:
+				#anim.play(tempanim)
 			

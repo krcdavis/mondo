@@ -74,6 +74,7 @@ func update_menu():
 		items[m].visible = false
 	
 	#print(actives2)
+	sizer()
 	update_cursor()
 
 func add_item(n,stri):
@@ -93,7 +94,8 @@ func execute_cursor():
 		tcard:
 			print(tcard)
 		prty:
-			print(prty)#party
+			menuhead.restate(menuhead.PARTYM)#party
+			#actually, send restates to menuhead
 		bagg:
 			print(bagg)
 		optis:
@@ -103,20 +105,6 @@ func execute_cursor():
 			print(back)
 
 
-func _process(_delta):
-	#disable if not battle mode pls
-	#match mode and catch inputs...
-		match mode:
-			"pauseoptions":
-				#activemenu is miraculous
-				if Input.is_action_just_pressed("ui_up"):
-					update_cursor("UP")#well it doesn't complain at least
-				else: if Input.is_action_just_pressed("ui_down"):
-					update_cursor("DW")
-				else: if Input.is_action_just_pressed("ui_left"):
-					update_cursor("LF")
-				else: if Input.is_action_just_pressed("ui_right"):
-					update_cursor("RT")
-				else: if Input.is_action_just_pressed("ui_accept"):
-					execute_cursor()
-		
+#func _process(_delta):
+	#pass
+	#and we're sending this off to pausemenu

@@ -18,6 +18,7 @@ func place_items(xplus=0,yplus=0,oddset=0):
 	for it in items:
 		#for y, add oddset*(n%1)
 		#is this plus or equal?
+		@warning_ignore("integer_division")
 		it.position = Vector2(xxx*(n%2),yy*int(n/2) + oddset*(n%2))
 		n += 1
 
@@ -31,7 +32,7 @@ func create_menu(num,list):
 		items[n].add_data("data", list[n])
 	
 	active_all()
-	place_items(yd)
+	place_items(0)
 	sizer()
 	update_cursor()
 	
@@ -45,7 +46,7 @@ func create_empty_menu(num, place = true):
 		#items[n].add_data("data", list[n])
 	
 	active_all()
-	if place: place_items(yd)
+	if place: place_items(0)
 	sizer()
 	update_cursor()
 	

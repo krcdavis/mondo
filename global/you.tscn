@@ -36,7 +36,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 shape = SubResource("CapsuleShape3D_2hbur")
 
 [node name="campoint" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.924991, 0.379989, 0, -0.379989, 0.924991, 0, 5.16961, 4.97305)
+transform = Transform3D(1, 0, 0, 0, 0.902066, 0.431598, 0, -0.431598, 0.902066, 0, 5.40455, 4.75377)
 
 [node name="Camera3D" type="Camera3D" parent="campoint"]
 fov = 64.4

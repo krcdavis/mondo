@@ -50,15 +50,33 @@ func _process(_delta):
 		
 		
 
+func textreplace(t):
+	t = t.replace("%pn",d.save.playername)# :)
+	t = t.replace("%rv",d.save.playername)#temp
+	
+	t = t.replace("%t0",gb.textreg0)
+	t = t.replace("%t1",gb.textreg1)
+	t = t.replace("%t2",gb.textreg2)
+	t = t.replace("%t3",gb.textreg3)
+	t = t.replace("%t4",gb.textreg4)
+	
+	return t
+
 func immediate_text(textdata):
 	#wait a tick before loading it, then mark finished?
-	pass
+	
+	textdata = textreplace(textdata)
+	
 	finished = false
 	sprite.visible=finished
 	textbox.bbcode_text = textdata
 	textbox.visible_characters = len(textbox.text) #-1?
 
 func textplay(textdata, disable = false):#
+	#some basic replace functions...
+	
+	textdata = textreplace(textdata)
+	
 	#for now just pass in plain text
 	finished = false
 	sprite.visible=finished

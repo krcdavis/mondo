@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dp2oy8nt6abqf"]
+[gd_scene load_steps=6 format=3 uid="uid://dp2oy8nt6abqf"]
 
 [ext_resource type="Script" path="res://flatscenes/pausemenu.gd" id="1_lqamj"]
 [ext_resource type="PackedScene" uid="uid://chw45fuqosiee" path="res://flatscenes/pauseoptions.tscn" id="2_04m2b"]
 [ext_resource type="PackedScene" uid="uid://db5nhk0cg1svs" path="res://flatscenes/partymenu.tscn" id="3_likpx"]
 [ext_resource type="PackedScene" uid="uid://0ye6isli8isd" path="res://flatscenes/monmenu.tscn" id="4_h6152"]
+[ext_resource type="PackedScene" uid="uid://caq8dwwddjat" path="res://flatscenes/settingsmenu.tscn" id="5_a0ykp"]
 
 [node name="pausemenu" type="CanvasLayer"]
 script = ExtResource("1_lqamj")
@@ -31,4 +32,7 @@ position = Vector2(865, 26)
 visible = false
 
 [node name="monmenu" parent="." instance=ExtResource("4_h6152")]
+visible = false
+
+[node name="settingsmenu" parent="." instance=ExtResource("5_a0ykp")]
 visible = false

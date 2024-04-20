@@ -38,6 +38,8 @@ func _process(_delta):
 
 
 #designed such that new menus are made on the fly and discarded when the next menu is made.
+#num is redundant, just get size of list
+#unless for some reason an empty menu of a certain size is desired
 func newlongmenu(num, list):
 	#hmm
 	if activemenu: activemenu.queue_free()
@@ -53,9 +55,11 @@ func newlongmenu(num, list):
 	
 	#doesn't work if scripttags is just "Node", but making it node2d breaks other things (':
 	
-	mode = "themenu"
+	mode = "actmenu"
 	menuresult = await activemenu.menuresult
 	mode = "notmenu"
 	activemenu.visible = false
 	print(menuresult)
 
+func yesno():
+	newlongmenu(2,["Yes","No"])

@@ -10,6 +10,7 @@ var types
 var abilities
 var maps
 var b_engine
+var save
 #currently maps are a mix between pokemon and monstars ones...
 #using full strings for head.changemap
 #could autoload the map list actually
@@ -54,6 +55,18 @@ func _ready():
 			types = load("res://global/base-types-handler.gd").new()
 	add_child(types)#calls ready() so use that to set up types.gd and such (:
 	
+	#save.gd
+	if OS.is_debug_build():
+		if FileAccess.file_exists(_datapath + "/save.gd"):
+			save = load(_datapath + "/save.gd").new()
+			add_child(save)
+		#else, leave it for now...
+	else:
+		save = load(_datapath + "/save.gd")
+		if save:
+			save = save.new()
+			add_child(save)
+		#else:
 
 func get_datapath():
 	return _datapath#ok

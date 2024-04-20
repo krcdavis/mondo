@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://dmshlr704dykb"]
 
-[ext_resource type="Script" path="res://default-project/scenes-maps/map1.gd" id="1_ihsn6"]
+[ext_resource type="Script" path="res://default-project/tscnsmaps/map1.gd" id="1_ihsn6"]
 [ext_resource type="Script" path="res://grass.gd" id="1_oisca"]
 [ext_resource type="PackedScene" uid="uid://bcns3x62m8gbm" path="res://default-project/models-etc/sign.dae" id="3_ydo6o"]
 [ext_resource type="PackedScene" uid="uid://c75inpg2pobf" path="res://global/intcindicator.tscn" id="4_d7vdq"]
@@ -121,74 +121,74 @@ surface_material_override/0 = SubResource("StandardMaterial3D_acmpa")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="walls/MeshInstance3D5/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_ou0fe")
 
-[node name="MeshInstance3D8" type="MeshInstance3D" parent="."]
+[node name="grassgreenl" type="MeshInstance3D" parent="."]
 transform = Transform3D(19.9357, 0, 0, 0, 1, 0, 0, 0, 7.34659, -44.8362, 1, 11.145)
 mesh = SubResource("BoxMesh_p0bmj")
 surface_material_override/0 = SubResource("StandardMaterial3D_87n4l")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D8"]
+[node name="StaticBody3D" type="StaticBody3D" parent="grassgreenl"]
 script = ExtResource("1_oisca")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D8/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="grassgreenl/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_ou0fe")
 
-[node name="MeshInstance3D9" type="MeshInstance3D" parent="."]
+[node name="grassgreenr1" type="MeshInstance3D" parent="."]
 transform = Transform3D(19.9357, 0, 0, 0, 1, 0, 0, 0, 7.34659, 37.9795, 1, -13.1065)
 mesh = SubResource("BoxMesh_p0bmj")
 surface_material_override/0 = SubResource("StandardMaterial3D_87n4l")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D9"]
+[node name="StaticBody3D" type="StaticBody3D" parent="grassgreenr1"]
 script = ExtResource("1_oisca")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D9/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="grassgreenr1/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_ou0fe")
 
-[node name="MeshInstance3D12" type="MeshInstance3D" parent="."]
+[node name="grassgreenr2" type="MeshInstance3D" parent="."]
 transform = Transform3D(19.9357, 0, 0, 0, 1, 0, 0, 0, 7.34659, 22.9509, 1, -6.20034)
 mesh = SubResource("BoxMesh_p0bmj")
 surface_material_override/0 = SubResource("StandardMaterial3D_87n4l")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D12"]
+[node name="StaticBody3D" type="StaticBody3D" parent="grassgreenr2"]
 script = ExtResource("1_oisca")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D12/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="grassgreenr2/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_ou0fe")
 
-[node name="MeshInstance3D10" type="MeshInstance3D" parent="."]
+[node name="grasspink" type="MeshInstance3D" parent="."]
 transform = Transform3D(19.9357, 0, 0, 0, 1, 0, 0, 0, 7.34659, 0.0701866, 1, 10.4973)
 mesh = SubResource("BoxMesh_p0bmj")
 surface_material_override/0 = SubResource("StandardMaterial3D_y3r1g")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D10"]
+[node name="StaticBody3D" type="StaticBody3D" parent="grasspink"]
 script = ExtResource("1_oisca")
 id = 1
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D10/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="grasspink/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_ou0fe")
 
-[node name="MeshInstance3D11" type="MeshInstance3D" parent="."]
+[node name="grassyellow" type="MeshInstance3D" parent="."]
 transform = Transform3D(19.9357, 0, 0, 0, 1, 0, 0, 0, 7.34659, 15.1042, 0.809715, 14.1949)
 mesh = SubResource("BoxMesh_p0bmj")
 surface_material_override/0 = SubResource("StandardMaterial3D_jky6i")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D11"]
+[node name="StaticBody3D" type="StaticBody3D" parent="grassyellow"]
 script = ExtResource("1_oisca")
 id = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D11/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="grassyellow/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_ou0fe")
 
 [node name="Node3D" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.54799, -3.8147e-06, -4.42089)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="doorhole" type="MeshInstance3D" parent="."]
 transform = Transform3D(7.6564, 0, 0, 0, 8.08395, 0, 0, 0, 2.58194, -1.43359, 3.72061, -28.4822)
 mesh = SubResource("BoxMesh_lowb0")
 surface_material_override/0 = SubResource("StandardMaterial3D_1m1dc")
 
-[node name="thedoor" type="Area3D" parent="MeshInstance3D"]
+[node name="thedoor" type="Area3D" parent="doorhole"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/thedoor"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="doorhole/thedoor"]
 shape = SubResource("BoxShape3D_koxmq")
 
 [node name="sign" parent="." instance=ExtResource("3_ydo6o")]
@@ -199,7 +199,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.7569, 0.5, -9.15157)
 [node name="arrow" parent="sign/intcindicator" index="0"]
 transform = Transform3D(0.216476, 0, 0, 0, 0.216476, 0, 0, 0, 0.216476, 0, 3.59297, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="sign/intcindicator"]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="sign/intcindicator"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.31309, 0)
 shape = SubResource("SphereShape3D_cbted")
 
@@ -223,7 +223,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.8757, 0.5, -6.41972)
 [node name="arrow" parent="sign2/intcindicator" index="0"]
 transform = Transform3D(0.216476, 0, 0, 0, 0.216476, 0, 0, 0, 0.216476, 0, 3.59297, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="sign2/intcindicator"]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="sign2/intcindicator"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.31309, 0)
 shape = SubResource("SphereShape3D_cbted")
 
@@ -247,7 +247,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.9443, 0.499998, -8.64137)
 [node name="arrow" parent="sign3/intcindicator" index="0"]
 transform = Transform3D(0.216476, 0, 0, 0, 0.216476, 0, 0, 0, 0.216476, 0, 3.59297, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="sign3/intcindicator"]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="sign3/intcindicator"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.31309, 0)
 shape = SubResource("SphereShape3D_cbted")
 
@@ -263,7 +263,7 @@ shape = SubResource("BoxShape3D_8dqku")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0150146, 1.0415, 0)
 shape = SubResource("BoxShape3D_8dqku")
 
-[connection signal="body_entered" from="MeshInstance3D/thedoor" to="." method="_on_thedoor_body_entered"]
+[connection signal="body_entered" from="doorhole/thedoor" to="." method="_on_thedoor_body_entered"]
 [connection signal="area_entered" from="sign/signarea" to="." method="_on_signarea_area_entered"]
 [connection signal="area_entered" from="sign3/signarea3" to="." method="_on_signarea_3_area_entered"]
 

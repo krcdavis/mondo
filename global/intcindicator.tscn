@@ -9,5 +9,7 @@ script = ExtResource("1_qj4os")
 [node name="arrow" parent="." instance=ExtResource("2_tu7xv")]
 transform = Transform3D(0.216476, 0, 0, 0, 0.216476, 0, 0, 0, 0.216476, 0, 0, 0)
 
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]

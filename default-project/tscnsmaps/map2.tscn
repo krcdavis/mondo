@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://b5y8w6uak1qds"]
+[gd_scene load_steps=14 format=3 uid="uid://b5y8w6uak1qds"]
 
-[ext_resource type="Script" path="res://default-project/scenes-maps/map2.gd" id="1_bs4f7"]
+[ext_resource type="Script" path="res://default-project/tscnsmaps/map2.gd" id="1_bs4f7"]
+[ext_resource type="PackedScene" uid="uid://dgroy7gofxmc0" path="res://default-project/scenes-etc/rival.tscn" id="2_r4si5"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_3sbi1"]
 
@@ -20,6 +21,16 @@ albedo_color = Color(0.560784, 0.588235, 0.576471, 1)
 albedo_color = Color(0, 0, 0, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3jsph"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_2p8cd"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_vd04q"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_u5vcn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_swiek"]
+albedo_color = Color(0, 0, 0, 1)
 
 [node name="map2" type="Node3D"]
 script = ExtResource("1_bs4f7")
@@ -112,5 +123,24 @@ surface_material_override/0 = SubResource("StandardMaterial3D_3ewcq")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/Area3D"]
 shape = SubResource("BoxShape3D_3jsph")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(11.1528, 0, 0, 0, 11.1528, 0, 0, 0, 11.1528, 15.2004, 4.14859, -14.8683)
+mesh = SubResource("BoxMesh_2p8cd")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D2/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_vd04q")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D2"]
+transform = Transform3D(0.177593, 0, 0, 0, 0.270355, 0, 0, 0, 0.0479621, 0.1246, -0.184121, 0.499551)
+mesh = SubResource("BoxMesh_u5vcn")
+surface_material_override/0 = SubResource("StandardMaterial3D_swiek")
+
+[node name="door" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.7429, 0.5, -3.80102)
+
+[node name="rival" parent="." instance=ExtResource("2_r4si5")]
 
 [connection signal="body_entered" from="MeshInstance3D/Area3D" to="." method="_on_area_3d_body_entered"]

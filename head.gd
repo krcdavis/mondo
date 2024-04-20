@@ -10,7 +10,7 @@ var btlw1v1
 #things
 @onready var you = $you
 @onready var hud = $hud
-@onready var phud = $pausemenu
+#@onready var phud = $pausemenu
 @onready var text = $hud/textbox
 
 signal scrdone
@@ -20,16 +20,18 @@ signal scriptdone
 func _ready():
 	you.head = self
 	hud.head = self
-	phud.head = self
-	phud.visible = false
+	#phud.head = self
+	#phud.visible = false
 	cmap = $map
 	text.visible = false
 	gb.head = self#i
 	hud.visible = false
 	#project data -> startup map -> change map to that
-	changemap(["default-project/scenes-maps/map1","Node3D"])
-	#changemap(["pokemon-project/scenes-maps/010vani_aqu/vani_aqu_0001","yourdoor"])
-	#changemap(["pokemon-project/scenes-maps/000junk/010_vville-early","yourdoor"])
+	changemap(["default-project/tscnsmaps/map1","door"])
+	#changemap(["pokemon-project/scenes-maps/010vani_aqu/xy000_yourhouse","start"])
+	#changemap(["pokemon-project/scenes-maps/010vani_aqu/010_vville_240418","yourdoor"])
+	#changemap(["pokemon-project/scenes-maps/040camphr setup","Node3D"])
+	#res://pokemon-project/scenes-maps/010vani_aqu/010_vville_240418.tscn
 	
 	#also from project data, get and load basic battle scene(s)
 	btlw1v1 = load(d.get_datapath() + "/scenes-btl/btlw_1_on_1.tscn").instantiate()#need fix naem
@@ -48,22 +50,24 @@ func pause():
 	#(eg, when free to walk around, when not in the middle of jumping off a ledge, etc)
 	#and show/activate the pause menu
 	
-	phud.visible = true
+	#phud.visible = true
 	storemode = mode
 	mode = "pause"
 
 func unpause():
 	#undoes pause, on closing the pause menu.
-	phud.visible = false
+	#phud.visible = false
 	mode = storemode
 
 #var datapath = "res://"#...
+var lastpoint = ""
 func changemap(mapdata):#[map tscn name, point name]- point can be ignored for now (:
 	#maybe change to map, point = null
 	#for now, the whole path is being passed in
 	var temp = load("res://" + mapdata[0] + ".tscn")
 	tmap = temp.instantiate()
 	add_child(tmap)
+	lastpoint = mapdata[1]
 	var snee = tmap.get_node_or_null(mapdata[1])
 	if snee:#ideally, if you is undefined pos is undefined anyway, eg title screen
 		$you.position = snee.position
@@ -99,6 +103,12 @@ func changemap(mapdata):#[map tscn name, point name]- point can be ignored for n
 	if cmap.has_method("loadingritual"):
 		cmap.loadingritual()
 
+func deactivate_player(mmode="a"):
+	you.visible=false
+	mode=mmode
+
+func activate_player():
+	pass
 
 func init_battle(list):
 	pass
@@ -140,57 +150,69 @@ func deactivate_battle():
 
 #i guess this will go here- takes an array of dicts
 func scriptplay(scripta):
-	var storemode = mode
+	var storemode1 = mode
 	mode = "script"
 	for script in scripta:
 		onescript(script)
 		await self.scrdone
 		#print("AAA")
 	await create_tween().tween_interval(.0002).finished#lol
-	mode = storemode
+	mode = storemode1
 	emit_signal("scriptdone")
 
 #this also means simple one-line scripts can be played on their own
 func onescript(script):
 	#this is done twice but it's fine (:
-	var storemode = mode
+	var storemode2 = mode
 	mode = "script"
-	#also, player's walking animation should be stopped.
+	#also, player's walking animation should be stopped in some cases.
+
 	match script[typ]:
 		txt:#throw some text on the barbie
+			hud.visible = true
 			if script.get(nme):
 				text.setname(script[nme])
 			else:
 				text.hidename()
-			text.textplay(script.get(txt,"line missing ):"), script.get("clear",false))
+			var t = script.get(txt,"line missing ):")
+			#text replacement is done by textbox code
+			text.textplay(t, script.get(dclr,false))
+			#TODO: implement spawning menus along/after a line of text (eg answering yes/no to a question)
 			#if menu, don't clear by default?...
 			#if wait == menu (and next entry is menu?) await menu, else
 			#or, package menu in text script itself
 			await text.textover
+			hud.visible = script.get(dclr,false)
 		anm:
-			pass
-			#something in here is broken (:
+			#TODO: error checking/handling at various levels. also, define a setup for animatable characters/objects so the animation player can be consistently accessed
 			#if not script.get(trg): error
-			#print(script.get(trg))
-			#else if cmap no have actors; error
+			#else if cmap doesn't have actors; error
 			#else if not cmap.actors.get( script[trg] ): error
-			#actors should be set up in a certain way
-			#also add way to pass in anim name directly
 			cmap.actors[script[trg]].anim.play( cmap.actors[script[trg]].anims[script[anm]] )
 			#if wait: wait, else wait anyway because otherwise it breaks
 			#also if anim loops don't wait...
 			#if script.get(wait,false): await cmap.actors[script[trg]].anim.animation_finished
 			#else:
+			#at various stages a single-frame wait is required to prevent issues... this is how they're implemented
 			await create_tween().tween_interval(.0002).finished#lol
-		twn:
+		twn:#tween
 			#if not script.get(trg): error
-			#else if map no have actors; error
+			#else if map doesn't have actors; error
 			#else if not map.actors.get( script[trg] ): error
 			var tween = create_tween()
 			tween.tween_property( cmap.actors[script[trg]], script[prop], script[end], script[tme] )#.st_trans( script[thing] )
 			if script.get(wait,false): await tween.finished
 			else: await create_tween().tween_interval(.0002).finished#lol
+		#TODO: add things like play sound effect, change music, menu, ...
+		menu:
+			pass
+			match script.get(menu,"A"):
+				"yno":
+					hud.yesno()
+			
+			await hud.activemenu.menuresult
+			
 	
-	mode = storemode
+	mode = storemode2
 	emit_signal("scrdone")
 

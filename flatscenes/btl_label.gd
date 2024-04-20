@@ -16,6 +16,9 @@ func _ready():
 #func _process(delta):
 	#pass
 
+func highlight(setting = true):
+	$Arr.visible = setting
+
 func settext(tt = "aaa"):
 	label.text = tt
 

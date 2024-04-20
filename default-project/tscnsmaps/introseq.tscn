@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6nkeaw6b8lqj"]
+
+[ext_resource type="Script" path="res://default-project/tscnsmaps/introseq.gd" id="1_vqtgv"]
+[ext_resource type="PackedScene" uid="uid://cxxi33fqy6qsx" path="res://default-project/scenes-maps/background.tscn" id="2_ou1uo"]
+
+[node name="introseq" type="Node3D"]
+script = ExtResource("1_vqtgv")
+
+[node name="background" parent="." instance=ExtResource("2_ou1uo")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.979, 2.463)
+
+[node name="LineEdit" type="LineEdit" parent="."]
+visible = false
+offset_left = 400.0
+offset_top = 182.0
+offset_right = 770.0
+offset_bottom = 213.0

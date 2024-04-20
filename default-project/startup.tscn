@@ -1,0 +1,105 @@
+[gd_scene load_steps=8 format=3 uid="uid://ck0opy8wd3qbv"]
+
+[ext_resource type="Script" path="res://default-project/startup.gd" id="1_mv46a"]
+[ext_resource type="PackedScene" uid="uid://c3wpwbyikxh20" path="res://flatscenes/optbase.tscn" id="1_qy0lo"]
+[ext_resource type="PackedScene" uid="uid://dnm05icq701g3" path="res://default-project/scenes-btl/battletest_temp_2.tscn" id="3_t807d"]
+[ext_resource type="Texture2D" uid="uid://sac17byr2k3w" path="res://default-project/flatresources/bg.png" id="4_rlxw3"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_u36vm"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_wmflu"]
+sky_material = SubResource("ProceduralSkyMaterial_u36vm")
+
+[sub_resource type="Environment" id="Environment_xpxyf"]
+background_mode = 2
+sky = SubResource("Sky_wmflu")
+tonemap_mode = 2
+
+[node name="startup" type="Node3D"]
+script = ExtResource("1_mv46a")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_xpxyf")
+
+[node name="battletest temp 2" parent="." instance=ExtResource("3_t807d")]
+
+[node name="Circle" parent="battletest temp 2" index="0"]
+visible = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="optbase" parent="CanvasLayer" instance=ExtResource("1_qy0lo")]
+position = Vector2(335, 227)
+
+[node name="NinePatchRect2" parent="CanvasLayer/optbase" index="0"]
+visible = false
+
+[node name="NinePatchRect" parent="CanvasLayer/optbase" index="1"]
+offset_top = 70.0
+offset_right = 493.0
+offset_bottom = 170.0
+
+[node name="Arr" parent="CanvasLayer/optbase" index="2"]
+position = Vector2(-35, 83)
+scale = Vector2(1.41667, 1.33333)
+
+[node name="Label" parent="CanvasLayer/optbase" index="3"]
+offset_left = 46.0
+offset_top = 91.0
+offset_right = 454.0
+offset_bottom = 141.0
+theme_override_font_sizes/font_size = 36
+text = "Intro sequence"
+
+[node name="optbase2" parent="CanvasLayer" instance=ExtResource("1_qy0lo")]
+position = Vector2(335, 421)
+
+[node name="NinePatchRect2" parent="CanvasLayer/optbase2" index="0"]
+visible = false
+
+[node name="NinePatchRect" parent="CanvasLayer/optbase2" index="1"]
+offset_top = 14.0
+offset_right = 493.0
+offset_bottom = 118.0
+
+[node name="Arr" parent="CanvasLayer/optbase2" index="2"]
+position = Vector2(-33, 25)
+scale = Vector2(1.41667, 1.39583)
+
+[node name="Label" parent="CanvasLayer/optbase2" index="3"]
+offset_left = 35.0
+offset_top = 39.0
+offset_right = 440.0
+offset_bottom = 93.0
+theme_override_font_sizes/font_size = 36
+text = "Jump right in"
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer"]
+offset_left = 268.0
+offset_top = 49.0
+offset_right = 867.0
+offset_bottom = 235.0
+texture = ExtResource("4_rlxw3")
+patch_margin_left = 9
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="Label" type="Label" parent="CanvasLayer/NinePatchRect"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 40.0
+offset_right = 546.0
+offset_bottom = 145.0
+theme_override_font_sizes/font_size = 76
+text = "Mondo Demo"
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.726575, -0.200885, 0.657065, 0, 0.956305, 0.292372, -0.687087, -0.21243, 0.694827, 43.019, 56.951, 94.631)
+fov = 66.5
+
+[editable path="battletest temp 2"]
+[editable path="CanvasLayer/optbase"]
+[editable path="CanvasLayer/optbase2"]

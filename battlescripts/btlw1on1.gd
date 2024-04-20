@@ -68,7 +68,8 @@ func restate(newstate):
 			activemenu = $battlehud/partycontrol
 			$battlehud/partycontrol.pupdate(true)
 			mode = PARTYM#that's actually fine
-		
+		"checkturn":
+			pass
 		
 		
 		

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://doemudpubtuco"]
+
+[ext_resource type="PackedScene" uid="uid://c75inpg2pobf" path="res://global/intcindicator.tscn" id="1_ms24i"]
+
+[node name="interactable" type="Node3D"]
+
+[node name="intcindicator" parent="." instance=ExtResource("1_ms24i")]
+
+[node name="colision" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="colision"]
