@@ -2,17 +2,18 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bv1h6lxeowdai"
-path.s3tc="res://.godot/imported/youbal2_Material2.png-ab5e4a12ddab062ea778eac1f7e18e8e.s3tc.ctex"
+uid="uid://c1j7li5pxi7gv"
+path.s3tc="res://.godot/imported/you-ball-r_youmat2.png-d3d4248c1334daf4538a86fe467095ef.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={}
 
 [deps]
 
-source_file="res://global/youbal2_Material2.png"
-dest_files=["res://.godot/imported/youbal2_Material2.png-ab5e4a12ddab062ea778eac1f7e18e8e.s3tc.ctex"]
+source_file="res://default-project/models-etc/you-ball-r_youmat2.png"
+dest_files=["res://.godot/imported/you-ball-r_youmat2.png-d3d4248c1334daf4538a86fe467095ef.s3tc.ctex"]
 
 [params]
 

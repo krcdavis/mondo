@@ -27,7 +27,7 @@ func _ready():
 	gb.head = self#i
 	hud.visible = false
 	#project data -> startup map -> change map to that
-	changemap(["default-project/tscnsmaps/map1","door"])
+	changemap(["default-project/tscnsmaps/map2","door"])
 	#changemap(["pokemon-project/scenes-maps/010vani_aqu/xy000_yourhouse","start"])
 	#changemap(["pokemon-project/scenes-maps/010vani_aqu/010_vville_240418","yourdoor"])
 	#changemap(["pokemon-project/scenes-maps/040camphr setup","Node3D"])
@@ -108,7 +108,8 @@ func deactivate_player(mmode="a"):
 	mode=mmode
 
 func activate_player():
-	pass
+	you.visible = true
+	mode = "you"
 
 func init_battle(list):
 	pass

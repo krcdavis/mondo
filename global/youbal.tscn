@@ -1,5 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://4vrn4ujmygv3"]
-
-[ext_resource type="PackedScene" uid="uid://dlxfx1cdack4v" path="res://global/youbal2.glb" id="1_e643b"]
-
-[node name="youbal2" instance=ExtResource("1_e643b")]

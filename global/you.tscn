@@ -22,7 +22,7 @@ shape = SubResource("CapsuleShape3D_ph7pc")
 [node name="visual" type="Node3D" parent="."]
 
 [node name="intpoint" type="Node3D" parent="visual"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7393, 1.31989)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7393, 1.97562)
 script = ExtResource("2_8ou82")
 
 [node name="model" type="Node3D" parent="visual"]

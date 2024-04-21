@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://grass.gd" id="2_3cyag"]
 [ext_resource type="PackedScene" uid="uid://b4jbaxwsjrb4" path="res://global/debughud.tscn" id="3_8ew5b"]
 [ext_resource type="PackedScene" uid="uid://dmgbou7y7jqjp" path="res://flatscenes/hud.tscn" id="5_frtgr"]
-[ext_resource type="PackedScene" uid="uid://dlxfx1cdack4v" path="res://global/youbal2.glb" id="5_jxpp0"]
+[ext_resource type="PackedScene" uid="uid://dlxfx1cdack4v" path="res://global/you.tscn" id="5_jxpp0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o0qyp"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)

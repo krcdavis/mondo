@@ -1,5 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://b6lw26xk6p8xo"]
-
-[ext_resource type="PackedScene" uid="uid://cew1h1nfqhqe6" path="res://default-project/models-etc/roubal2.glb" id="1_edopq"]
-
-[node name="roubal2" instance=ExtResource("1_edopq")]

@@ -51,6 +51,7 @@ func loadingritual():
 	head.scriptplay(script005)
 	await head.scriptdone
 	d.save.firstloadmapflag = true
+	#where and when to activate player?...
 	head.changemap(["default-project/tscnsmaps/map2","door"])
 
 const script001 = [

@@ -1,9 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://dmshlr704dykb"]
+[gd_scene load_steps=13 format=3 uid="uid://dmshlr704dykb"]
 
 [ext_resource type="Script" path="res://default-project/tscnsmaps/map1.gd" id="1_ihsn6"]
 [ext_resource type="Script" path="res://grass.gd" id="1_oisca"]
-[ext_resource type="PackedScene" uid="uid://bcns3x62m8gbm" path="res://default-project/models-etc/sign.dae" id="3_ydo6o"]
-[ext_resource type="PackedScene" uid="uid://c75inpg2pobf" path="res://global/intcindicator.tscn" id="4_d7vdq"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_p0bmj"]
 
@@ -32,12 +30,6 @@ albedo_color = Color(0.698039, 0.827451, 0.152941, 1)
 albedo_color = Color(0, 0, 0, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_koxmq"]
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_cbted"]
-radius = 3.61772
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_8dqku"]
-size = Vector3(2.16772, 3.08301, 1)
 
 [node name="map1" type="Node3D"]
 script = ExtResource("1_ihsn6")
@@ -191,82 +183,4 @@ surface_material_override/0 = SubResource("StandardMaterial3D_1m1dc")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="doorhole/thedoor"]
 shape = SubResource("BoxShape3D_koxmq")
 
-[node name="sign" parent="." instance=ExtResource("3_ydo6o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.7569, 0.5, -9.15157)
-
-[node name="intcindicator" parent="sign" instance=ExtResource("4_d7vdq")]
-
-[node name="arrow" parent="sign/intcindicator" index="0"]
-transform = Transform3D(0.216476, 0, 0, 0, 0.216476, 0, 0, 0, 0.216476, 0, 3.59297, 0)
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="sign/intcindicator"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.31309, 0)
-shape = SubResource("SphereShape3D_cbted")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="sign"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="sign/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0150146, 1.0415, 0)
-shape = SubResource("BoxShape3D_8dqku")
-
-[node name="signarea" type="Area3D" parent="sign"]
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="sign/signarea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0150146, 1.0415, 0)
-shape = SubResource("BoxShape3D_8dqku")
-
-[node name="sign2" parent="." instance=ExtResource("3_ydo6o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.8757, 0.5, -6.41972)
-
-[node name="intcindicator" parent="sign2" instance=ExtResource("4_d7vdq")]
-
-[node name="arrow" parent="sign2/intcindicator" index="0"]
-transform = Transform3D(0.216476, 0, 0, 0, 0.216476, 0, 0, 0, 0.216476, 0, 3.59297, 0)
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="sign2/intcindicator"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.31309, 0)
-shape = SubResource("SphereShape3D_cbted")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="sign2"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="sign2/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0150146, 1.0415, 0)
-shape = SubResource("BoxShape3D_8dqku")
-
-[node name="signarea" type="Area3D" parent="sign2"]
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="sign2/signarea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0150146, 1.0415, 0)
-shape = SubResource("BoxShape3D_8dqku")
-
-[node name="sign3" parent="." instance=ExtResource("3_ydo6o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.9443, 0.499998, -8.64137)
-
-[node name="intcindicator" parent="sign3" instance=ExtResource("4_d7vdq")]
-
-[node name="arrow" parent="sign3/intcindicator" index="0"]
-transform = Transform3D(0.216476, 0, 0, 0, 0.216476, 0, 0, 0, 0.216476, 0, 3.59297, 0)
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="sign3/intcindicator"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.31309, 0)
-shape = SubResource("SphereShape3D_cbted")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="sign3"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="sign3/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0150146, 1.0415, 0)
-shape = SubResource("BoxShape3D_8dqku")
-
-[node name="signarea3" type="Area3D" parent="sign3"]
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="sign3/signarea3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0150146, 1.0415, 0)
-shape = SubResource("BoxShape3D_8dqku")
-
 [connection signal="body_entered" from="doorhole/thedoor" to="." method="_on_thedoor_body_entered"]
-[connection signal="area_entered" from="sign/signarea" to="." method="_on_signarea_area_entered"]
-[connection signal="area_entered" from="sign3/signarea3" to="." method="_on_signarea_3_area_entered"]
-
-[editable path="sign/intcindicator"]
-[editable path="sign2/intcindicator"]
-[editable path="sign3/intcindicator"]

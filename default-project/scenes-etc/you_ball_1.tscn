@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://p56f6aq7bo6"]
+
+[ext_resource type="PackedScene" uid="uid://bii5scx5raqit" path="res://default-project/models-etc/you-ball-r.glb" id="1_fqdb3"]
+[ext_resource type="Texture2D" uid="uid://bkh05pfsit3ln" path="res://default-project/models-etc/you-ball-1_youmat.png" id="2_n0hbt"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xsob2"]
+albedo_texture = ExtResource("2_n0hbt")
+
+[node name="you-ball-1" instance=ExtResource("1_fqdb3")]
+transform = Transform3D(-0.78, 0, -6.81898e-08, 0, 0.78, 0, 6.81898e-08, 0, -0.78, 0, 0, 0)
+
+[node name="Sphene" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_xsob2")

@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://cu684pki8wi6"]
+
+[ext_resource type="PackedScene" uid="uid://doemudpubtuco" path="res://global/interactable.tscn" id="1_88elm"]
+[ext_resource type="PackedScene" uid="uid://bii5scx5raqit" path="res://default-project/models-etc/you-ball-r.glb" id="2_4ia8r"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_bowtn"]
+radius = 3.73602
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jxx88"]
+radius = 0.967943
+height = 3.27008
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0oyvl"]
+radius = 0.94773
+height = 3.20711
+
+[node name="rival" instance=ExtResource("1_88elm")]
+
+[node name="arrow" parent="intcindicator" index="0"]
+transform = Transform3D(0.216476, 0, 0, 0, 0.216476, 0, 0, 0, 0.216476, 0, 3.74166, 0)
+
+[node name="CollisionShape3D" parent="intcindicator" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.70044, 0)
+shape = SubResource("CylinderShape3D_bowtn")
+
+[node name="CollisionShape3D" parent="colision" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5958, 0)
+shape = SubResource("CapsuleShape3D_jxx88")
+
+[node name="you-ball-r" parent="visual" index="0" instance=ExtResource("2_4ia8r")]
+
+[node name="CollisionShape3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.59083, 0)
+shape = SubResource("CapsuleShape3D_0oyvl")
+
+[editable path="intcindicator"]

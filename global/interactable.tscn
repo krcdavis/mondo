@@ -2,10 +2,14 @@
 
 [ext_resource type="PackedScene" uid="uid://c75inpg2pobf" path="res://global/intcindicator.tscn" id="1_ms24i"]
 
-[node name="interactable" type="Node3D"]
+[node name="interactable" type="StaticBody3D"]
 
 [node name="intcindicator" parent="." instance=ExtResource("1_ms24i")]
 
 [node name="colision" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="colision"]
+
+[node name="visual" type="Node3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]

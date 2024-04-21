@@ -8,3 +8,5 @@ const tgblue = "blue"
 const tgpur = "pur"
 
 const xstat = "xstat"
+
+const rival = "rival"

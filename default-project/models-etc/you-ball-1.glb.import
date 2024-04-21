@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cew1h1nfqhqe6"
-path="res://.godot/imported/roubal2.glb-dc1f70b2f27023c7bd7ab9a565f5c3a1.scn"
+uid="uid://jayfhflg1ptl"
+path="res://.godot/imported/you-ball-1.glb-1fbec5a471bf866720ed1c4e8fcad6b6.scn"
 
 [deps]
 
-source_file="res://default-project/models-etc/roubal2.glb"
-dest_files=["res://.godot/imported/roubal2.glb-dc1f70b2f27023c7bd7ab9a565f5c3a1.scn"]
+source_file="res://default-project/models-etc/you-ball-1.glb"
+dest_files=["res://.godot/imported/you-ball-1.glb-1fbec5a471bf866720ed1c4e8fcad6b6.scn"]
 
 [params]
 

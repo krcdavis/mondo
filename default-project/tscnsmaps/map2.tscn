@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://b5y8w6uak1qds"]
 
 [ext_resource type="Script" path="res://default-project/tscnsmaps/map2.gd" id="1_bs4f7"]
-[ext_resource type="PackedScene" uid="uid://dgroy7gofxmc0" path="res://default-project/scenes-etc/rival.tscn" id="2_r4si5"]
+[ext_resource type="PackedScene" uid="uid://cu684pki8wi6" path="res://default-project/scenes-etc/rival-interactable.tscn" id="2_g6pf0"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_3sbi1"]
 
@@ -139,8 +139,18 @@ mesh = SubResource("BoxMesh_u5vcn")
 surface_material_override/0 = SubResource("StandardMaterial3D_swiek")
 
 [node name="door" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.7429, 0.5, -3.80102)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.8024, 0.5, 0.595961)
 
-[node name="rival" parent="." instance=ExtResource("2_r4si5")]
+[node name="rival" parent="." instance=ExtResource("2_g6pf0")]
+transform = Transform3D(0.78, 0, 0, 0, 0.78, 0, 0, 0, 0.78, -5.0219, 0.53924, 0.30991)
 
-[connection signal="body_entered" from="MeshInstance3D/Area3D" to="." method="_on_area_3d_body_entered"]
+[node name="you-ball-r" parent="rival/visual" index="0"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.995396, -0.041571, 0.0863613, 0, 0.901044, 0.433728, -0.0958458, -0.431731, 0.896896, -4.27625, 5.84871, 8.89813)
+
+[connection signal="area_entered" from="rival/colision" to="." method="_on_rival_colision_area_entered"]
+
+[editable path="rival"]
+[editable path="rival/intcindicator"]
