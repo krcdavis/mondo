@@ -1,7 +1,17 @@
 ### Mondo project- mon game for Godot
 
-Mondo Project is a free and open-source turn based RPG game engine for the Godot engine, with a particular resemblance- to a certain popular monster-collecting franchise. The aim is to provide basic code for common -things/events/functions like battling, interacting, catching, etc, while still providing flexibiliy and ways for the user to customize their game's gameplay. To this end, the project has been organized in a specific way, where ideally the user can just have all their code and data in a project folder, and the engine will look for and load all the needed files.
-This could also be used for more general turn-based RPG type games.
+Mondo Project is a free and open-source turn based RPG game engine for the Godot engine, with a particular resemblance- to a certain popular monster-collecting franchise.
+My goal is to provide basic functionality without limiting the user to making a certain sort of game. The last thing I'd want to see is people making games with this that all have the same "feel"- same menu assets, same damage calculations, god forbid the same monster set... To that end, the project has been designed in a particular way.
+
+The user works largely within their own project folder. The base game looks for certain folders and files within the project folder to load into the right places. Additionally, base files are provided for certain things than the user can extend, so there's a kind of zig-zagging loading/hierarchy. For example, the battle scene loads a "battle engine" object that controls things like AI and damage calculations.
+Ideally, the user can work entirely within their own project folder and still get a great amount of flexibility out of the engine, though of course if you want or need to modify files outside of that you're free to do so.
+This is partly so I can work on my own projects in tandem with the engine and simply exclude the folders from the open source release. If you'll look in the .gitexclude file, you'll see the folder names in question. One of them is my own original project which is mine and you can't have it, and one is... well, Nintendo has ninjas.
+
+To keep people from all using the same assets, the default project provided with the engine is agressively useless. However it is fully functional, so you can "play" it... what there is of it.
+If the specified project folder isn't found, the default-project folder will be loaded instead.
+
+The engine could easily be used for non-mon RPG games as well.
+
 
 So how does this work?
 Not very well ha ha ha. Jokes aside, it's early days, so a lot of this is rather... messy.
@@ -9,7 +19,6 @@ Not very well ha ha ha. Jokes aside, it's early days, so a lot of this is rather
 a few highlights:
 
 **data-handler.gd**: a global singleton that gets certain files from the specified project folder and loads them. These files include data files for things like species, scripts for getting data from said data files, the battle engine, etc.
-If the project folder isn't found, the default-project folder will be loaded instead. (This has the nice aside affect of letting me work on my own game projects that won't be open-sourced right in the same project, exclude those and the project still "works" right out of the box.)
 Later further error-checking will be added, as well as properly calling add_child() for each file loaded this way so their ready functions are actually run.
 
 **The scripttags system**: At the moment, data is stored in dictionaries. This will probably at some point be rewritten to use resources like most other games but for now this works well enough. To aid in that, the project has a system of using "script tags", predefined strings that can be used as keys for those dictionaries as well as certain other commonly-used identifiers (eg types).
@@ -20,7 +29,7 @@ As an example, if you added secondary types to your mons, you'd want to account 
 
 **The head scene**: This scene basically manages everything else. The player node, pause menu, current map, etc are all children of this node, and it handles things like swapping maps, switching between overworld and battle scene, etc.
 
-**monster.gd and battlecomp.gd**: A basic monster (as in an individual mon, not a species), and a in-battle-companion-object that holds extra data for that mon while in battle (needs a better name).
+**monster.gd and battlecomp.gd**: A basic monster (as in an individual mon, not a species), and a in-battle-companion-object that holds extra data for that mon while in battle (needs a better name). Will later be turned into base classes that the user's project can extend, as obviously adding new stats to your mon system is one of the most basic things you might want to do. A certain popular mons series for example of course adds a second attack and defense stat... You'll need to be able to add those stats to your mon object if you want to make a game for that franchise.
 
 And so much more (spaghetti)
 
@@ -41,3 +50,5 @@ And so much more (spaghetti)
 -Functionality to extend monster and battlecomp objects.
 -EXP, evolution
 -saving
+-Project organisation is a mess lol
+-Documentation
