@@ -45,14 +45,13 @@ func execute_cursor(slot = 0, target = 1):
 	#so just get deytah from actives[cursor].get_data()
 	if cursor == actives.size()-1:# back with yee
 		btlhead.restate(btlhead.OPTIONS)
-	else:
+	else:#dewit
 		btlhead.slots[slot].set_movenext(
 			actives[cursor].get_data("moveid"),
 			actives[cursor].get_data("moveindex"),
 			target
 			)
-	
-	#finally...
-	#btlhead.restate(btlhead.EXECTURN)
-		btlhead.exec_turn()
+
+		#btlhead.exec_turn()
+		btlhead.restate(btlhead.NEXTOREXEC)
 		#next: replace with some return to btlhead to check next step

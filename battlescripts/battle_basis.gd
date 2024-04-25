@@ -46,6 +46,10 @@ const MOVES = "moves"
 const BAGM = "baggu"
 const PARTYM = "partym"
 const PARTYMF = "partymforced"
+
+const NEXTOREXEC = "next-or-exec"
+
+#unused?
 const INTURN = "inturn"
 const EXECTURN = "execturn"
 

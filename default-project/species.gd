@@ -66,6 +66,19 @@ const species = {
 		tgability:"none",
 		tgbmoves:["green1","green2","blue2","",]
 	},
+	"arock":{
+		tgname:"A Rock",
+		tgmodel:"arock",
+		tgtype:tggreen,
+		tgbase:{
+			tghp:80,
+			tgatk:1,
+			tgdef:60,
+			tgspeed:6
+		},
+		tgability:"none",
+		tgbmoves:["green1","green2","blue2","",]
+	},
 	
 	"default":{
 		tgname:"default",

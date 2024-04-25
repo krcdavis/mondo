@@ -68,8 +68,12 @@ func restate(newstate):
 			activemenu = $battlehud/partycontrol
 			$battlehud/partycontrol.pupdate(true)
 			mode = PARTYM#that's actually fine
-		"checkturn":
+		NEXTOREXEC:
 			pass
+			#a user-controlled mon has recieved its instructions (move, switch, item).
+			#if more mons are awaiting user input, move to the next of them.
+			#here there's only one, so continue to exec_turn
+			exec_turn()
 		
 		
 		

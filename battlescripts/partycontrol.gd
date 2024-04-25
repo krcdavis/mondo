@@ -65,6 +65,7 @@ func execute_cursor(slot = 0):
 			emit_signal("faint_switch_done")
 		#if done with all mons on your side...
 		else:#this should be fine
-			btlhead.exec_turn()
+			#btlhead.exec_turn()
+			btlhead.restate(btlhead.NEXTOREXEC)
 			#next: return to btlhead to determine next step
 	
