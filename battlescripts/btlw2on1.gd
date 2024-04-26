@@ -88,3 +88,54 @@ func restate(newstate):
 		#additionally, run is replaced by back, and selecting back decs ycursor
 		
 		
+		
+
+
+
+func exec_turn():
+	restate(INTURN)#this hides the menus
+	
+	slots[1].set_movenext("red1",0,0)#temp "ai"
+	engine.set_AI(1)
+	
+	for s in speedqueues: s.clear()
+	specialqueue.clear()
+	
+	for moncomp in slots:
+		if moncomp.mon:#not null
+			var pp = d.moves.move_getprio(moncomp.movenext_id)
+			#sure hope the values are correct
+			if pp == SQsp:# ok
+				specialqueue.append(moncomp)
+			else:
+				speedqueues[pp].append(moncomp)
+	
+	for s in speedqueues:
+		if s.size() > 1:#is this necessary? idk
+			s.sort_custom(speedTie)
+	
+	for moncomp in specialqueue:
+		match moncomp.movenext_id:
+			"run":
+				try_running()
+				#if successful quit turn execution... return i guess
+				await self.thingdone
+				return
+			"switch":
+				swap_mon(0, party.party[moncomp.movenext_target] )
+				await self.thingdone
+	
+	for s in speedqueues:
+		for moncomp in s:
+			#if mon still alive pls
+			#calcdmg takes attacker mon object and target slot, lol
+			if moncomp.get_health() > 0:#and some other checks
+				
+				engine.doamove(moncomp)
+				await engine.movedone
+				#check_faints()
+				
+				
+	
+	#once all done, try another turn
+	#turnhead()

@@ -81,6 +81,7 @@ func setup_species_level(species, lvl, helth = -1, _yors = false):
 		temp = 0#not -1 because reasons
 		
 		#base moveset from species data, temporary
+		#todo: add check for valid moves, lol
 		move0 = d.sph.getstg(species_id, tbmoves)[0]
 		move1 = d.sph.getstg(species_id, tbmoves)[1]
 		move2 = d.sph.getstg(species_id, tbmoves)[2]

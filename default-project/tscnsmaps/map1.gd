@@ -6,18 +6,34 @@ var head
 const wild0 = [ ["cube",3],["cone",2] ]
 const wild1 = [ ["icos",3],["cone",2] ]
 const wild2 = [ ["donut",3],["icos",3],["sphere",2] ]
+const wild3 = [ ["arock", 2] ]
 
 const wilds = {
 	0: wild0,
 	1: wild1,
-	2: wild2
+	2: wild2,
+	3: wild3
 }
+#next: decide some way to designate grey grass as 2-on-1
+
+#like so
+const lv = "lv"
+const sp = "sp"#fix this pls
+#default type is wild one-on-one
+const w0 = [{sp:"cube",lv:3},{sp:"cone",lv:2}]
+const w1 = [{sp:"icos",lv:3},{sp:"cone",lv:2}]
+const w2 = [{sp:"donut",lv:3},{sp:"icos",lv:3},{sp:"sphere",lv:2}]
+const w3 = [{sp:"arock",lv:2,typ:"btlw2on1"}]
+#res://default-project/scenes-btl/btlw2on1.tscn
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 	#init menu...
-	
+
+func loadingritual():
+	pass
+	#load and add btlw2on1 to head
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

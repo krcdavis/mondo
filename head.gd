@@ -6,7 +6,8 @@ var storemode = ""#?
 var cmap
 var tmap
 var wilds = {}
-var btlw1v1
+var btlw1v1#remove
+var battlescenes = {}
 #things
 @onready var you = $you
 @onready var hud = $hud
@@ -38,7 +39,6 @@ func _ready():
 	add_child(btlw1v1)
 	btlw1v1.visible = false#etc
 	btlw1v1.head = self
-
 
 # process...
 #func _process(delta):
@@ -111,24 +111,25 @@ func activate_player():
 	you.visible = true
 	mode = "you"
 
+func add_battlescene(path, nme):
+	#to do: add errorchecking lol
+	var btemp = load(path).instantiate()
+	battlescenes[nme] = btemp
+	add_child(btemp)
+
+#takes in the array of grass patch types the player was in contact with.
+#gets corresponding wild lists, picks one- now a dict including battle scene type
 func init_battle(list):
-	pass
-	#list will be like [0,1] or whatever- array of IDs of grass patches player was in contact
-	#with when battle triggered. cross-ref with wilds which is current map's wild data
-	#to get a list of possible encounters, select one, set up wild battle and call newbattle()
-	
-	#other types of battle will of course be implemented later...
-	#consider eg if you have double battle grass like bw, player might be in contact w/
-	#both that and normal grass, etc...
-	
 	#in terms of the battle scene, as much as possible is done either here or 
-	#in battle basis/utils so it doesn't need to be duplicated across battle types...
+	#in battle basis/utils so it doesn't need to be duplicated across battle types
 	
 	var wildlist = []
 	for l in list: wildlist += wilds[l]
 	#print(wildlist)
 	var selection = wildlist[ gb.rng.randi() % wildlist.size() ]
 	#print(selection)
+	#var btsc = selection.get(typ, "btlw1v1")
+	#b[btsc].wtemp = [selection["sp"],selection["lv"]]
 	btlw1v1.wtemp = selection
 	cmap.visible=false
 	btlw1v1.newbattle()

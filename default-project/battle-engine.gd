@@ -26,7 +26,7 @@ func set_AI(slot):
 		var mmove = slots[slot].mon.getmove(n)
 		if d.moves.move_isvalid(mmove):
 			vmoves.append( [n, mmove] )
-	var ranint = gb.rng.randi_range(0, vmoves.size())
+	var ranint = gb.rng.randi_range(0, vmoves.size()-1)#lol
 
 	slots[slot].set_movenext( slots[slot].mon.getmove(ranint), ranint, 0)
 
