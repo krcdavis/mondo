@@ -59,7 +59,12 @@ func simplemove(moncomp):
 	#someday...
 	var cdmg = dm * rel * moncomp.catk / target.cdef
 	
-	textbox.textplay(str("%s used %s!" % [moncomp.mon.nname,d.moves.move_getname(moncomp.movenext_id)]))
+	gb.textreg0 = moncomp.mon.nname
+	gb.textreg1 = slots[moncomp.movenext_target].mon.nname
+	gb.textreg2 = d.moves.move_getname(moncomp.movenext_id)
+
+	textbox.textplay("%t0 used %t2 on %t1!")
+	#textbox.textplay(str("%s used %s!" % [moncomp.mon.nname,d.moves.move_getname(moncomp.movenext_id)]))
 	await textbox.textover
 	#damage target by cdmg, check for faint
 	target.damage_by_amt(cdmg)

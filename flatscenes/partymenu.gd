@@ -3,6 +3,8 @@ extends Node2D
 var partymenu
 var back
 
+var menuhead
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	partymenu = twocolumnenu.new()
@@ -32,6 +34,7 @@ func update_cursor(dir):
 	#ie last in actives. if cursor on back button apply some other special rules.
 	#else... base update, but with actives count - 1?
 	partymenu.update_cursor(dir)
+	print(partymenu.cursor)
 
 func update_menu():
 	update_party()
@@ -55,9 +58,19 @@ func update_party():
 	partymenu.update_cursor()
 
 func update_mon(n):
-	partymenu.items[n].setlabel("a")
-	partymenu.items[n].setlevel(2)
+	#check against size of party
+	partymenu.items[n].setlabel(party.party[n].nname)
+	partymenu.items[n].setlevel(party.party[n].level)
+
+func execute_cursor():
+	pass
+	if partymenu.cursor == partymenu.activescount-1:#back
+		menuhead.restate(menuhead.MAINM)
+	else:
+		menuhead.restate(menuhead.MONM,partymenu.cursor)
+
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
+#func _process(_delta):
+	#pass

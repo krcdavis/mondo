@@ -23,8 +23,14 @@ const sp = "sp"#fix this pls
 const w0 = [{sp:"cube",lv:3},{sp:"cone",lv:2}]
 const w1 = [{sp:"icos",lv:3},{sp:"cone",lv:2}]
 const w2 = [{sp:"donut",lv:3},{sp:"icos",lv:3},{sp:"sphere",lv:2}]
-const w3 = [{sp:"arock",lv:2,typ:"btlw2on1"}]
+const w3 = [{sp:"arock",lv:2,typ:"btlw2v1"}]
 #res://default-project/scenes-btl/btlw2on1.tscn
+const wildstest = {
+	0:w0,
+	1:w1,
+	2:w2,
+	3:w3
+}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

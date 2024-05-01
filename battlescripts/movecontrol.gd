@@ -1,5 +1,6 @@
 extends "res://global/longmenu.gd"
 
+var current_slot = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -14,6 +15,7 @@ func _ready():
 	update_cursor()
 
 func mupdate(slot = 0):
+	#var slot = btlhead.current_cursor
 	actives.clear()
 	for n in range(0,4):
 		var move = btlhead.slots[slot].mon.getmove(n)
@@ -40,7 +42,9 @@ func mupdate(slot = 0):
 #func _process(delta):
 	#pass
 
-func execute_cursor(slot = 0, target = 1):
+#slot can be removed.
+func execute_cursor(_slot = 0, target = 1):
+	var slot = btlhead.current_cursor
 	#since moveid and moveindex are stored in optbase, full item index isn't needed.
 	#so just get deytah from actives[cursor].get_data()
 	if cursor == actives.size()-1:# back with yee

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b5y8w6uak1qds"]
+[gd_scene load_steps=15 format=3 uid="uid://b5y8w6uak1qds"]
 
 [ext_resource type="Script" path="res://default-project/tscnsmaps/map2.gd" id="1_bs4f7"]
 [ext_resource type="PackedScene" uid="uid://cu684pki8wi6" path="res://default-project/scenes-etc/rival-interactable.tscn" id="2_g6pf0"]
@@ -32,6 +32,9 @@ data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_swiek"]
 albedo_color = Color(0, 0, 0, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_5h20c"]
+size = Vector3(18.7631, 8.13477, 2.02673)
+
 [node name="map2" type="Node3D"]
 script = ExtResource("1_bs4f7")
 
@@ -57,6 +60,28 @@ surface_material_override/0 = SubResource("StandardMaterial3D_p12e1")
 [node name="StaticBody3D" type="StaticBody3D" parent="walls/MeshInstance3D2"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="walls/MeshInstance3D2/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_y4h5p")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="walls"]
+transform = Transform3D(69.6888, 0, 0, 0, 11.2382, 0, 0, 0, 4.06075, -28.0096, 2.2337, 1.28013)
+mesh = SubResource("BoxMesh_3sbi1")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_p12e1")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="walls/MeshInstance3D8"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="walls/MeshInstance3D8/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_y4h5p")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="walls"]
+transform = Transform3D(69.6888, 0, 0, 0, 11.2382, 0, 0, 0, 4.06075, 48.6217, 2.2337, 1.28013)
+mesh = SubResource("BoxMesh_3sbi1")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_p12e1")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="walls/MeshInstance3D9"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="walls/MeshInstance3D9/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_y4h5p")
 
 [node name="MeshInstance3D6" type="MeshInstance3D" parent="walls"]
@@ -139,18 +164,29 @@ mesh = SubResource("BoxMesh_u5vcn")
 surface_material_override/0 = SubResource("StandardMaterial3D_swiek")
 
 [node name="door" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.8024, 0.5, 0.595961)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.8024, 0.5, -5.33596)
 
 [node name="rival" parent="." instance=ExtResource("2_g6pf0")]
-transform = Transform3D(0.78, 0, 0, 0, 0.78, 0, 0, 0, 0.78, -5.0219, 0.53924, 0.30991)
+transform = Transform3D(0.78, 0, 0, 0, 0.78, 0, 0, 0, 0.78, 1.10081, 0.53924, 10.4627)
 
 [node name="you-ball-r" parent="rival/visual" index="0"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.995396, -0.041571, 0.0863613, 0, 0.901044, 0.433728, -0.0958458, -0.431731, 0.896896, -4.27625, 5.84871, 8.89813)
+transform = Transform3D(0.995396, -0.041571, 0.0863613, 0, 0.901044, 0.433728, -0.0958458, -0.431731, 0.896896, 1.84646, 5.84871, 19.051)
+
+[node name="eventactivation_rival" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.7121, 0, 5.77225)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="eventactivation_rival"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.689636, 3.56738, -1.19635)
+shape = SubResource("BoxShape3D_5h20c")
+
+[node name="walkto" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.95107, 0.5, 4.71516)
 
 [connection signal="area_entered" from="rival/colision" to="." method="_on_rival_colision_area_entered"]
+[connection signal="body_entered" from="eventactivation_rival" to="." method="_on_eventactivation_rival_body_entered"]
 
 [editable path="rival"]
 [editable path="rival/intcindicator"]

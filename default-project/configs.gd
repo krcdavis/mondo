@@ -1,7 +1,7 @@
 extends Node
 
 #default party
-const dfparty = [ ["icos",1,-1],["sphere",12,52],["cone",9,-1] ]
+const dfparty = [ ["icos",8,-1],["sphere",12,-1],["cone",9,-1] ]
 #default first-load map
 const dfmap = ["default-project/scenes-maps/map1","Node3D"]
 

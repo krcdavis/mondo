@@ -12,6 +12,8 @@ If the specified project folder isn't found, the default-project folder will be 
 
 The engine could easily be used for non-mon RPG games as well.
 
+If you want to observe my slow descent into insanity, you can follow my blog: https://krcdgamedev.tumblr.com/tagged/game%20dev
+
 
 So how does this work?
 Not very well ha ha ha. Jokes aside, it's early days, so a lot of this is rather... messy.

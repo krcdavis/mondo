@@ -79,9 +79,20 @@ func swap_mon(slot, mon):
 	
 	labels[slot].settext(slots[slot].mon.nname)
 	labels[slot].sethp(slots[slot].mon.hp,slots[slot].mon.health)
+
+	#set mon's participation against all enemy mons to recieve EXP from it.
+	#for now, hardcoded to slot 1.
+	#for trainer battles, this will be done on trainer swap as well.
+	#rather, match mon as yours or enemy, ...
+	slots[1].participants[ slots[0].mon.temp ] = true
+	
 	
 	emit_signal("thingdone")
 
+#NEXT: change sendin to whether to check player's slots or not. if true, can be accesed through
+#battlehead, will always be the active scene because extend; if called outside of battle
+#ofc there will be no battle head and you shouldn't check anything
+#that setting gets passed on to check_mon too
 func check_party(temp = -1):#start = 0 ?...
 	for mon in party.party: #will eventually be a set of 4/6 with empty slots which need to be falsed; for now just faint status
 		#check_mon(mon)
@@ -106,6 +117,34 @@ func win():
 	#await $battlehud/textbox.textover
 	$battlehud/textbox.textplay("you've winned!!")
 	await $battlehud/textbox.textover
+
+	#calculate and apply EXP. -in trainer battles this is done on faint.
+	var texpr = [0.0,0.0,0.0,0.0,0.0,0.0]
+	for n in range(0,6):#match party/participation size ofc
+		if slots[1].participants[n]:
+			#if mon fainted, de-set it. else,
+			print( party.party[n].nname )
+			var expb
+			var gap = party.party[n].level - slots[1].mon.level
+			if gap >= 0:
+				expb = 100 * (1 / (gap + 2.5))
+			else:
+				gap *= -1
+				expb = 100 * (gap / (gap+.5))
+			texpr[n] = int(expb + .5)
+			#lol
+			texpr[n] *= 51
+	print(texpr)
+	#it applies the exp to the mon or it gets the hose again
+	#.add_exp(p[n])
+	for n in range(0, 6):#again, check size...
+		if texpr[n] > 0:
+			party.party[n].add_exp(texpr[n])
+			await party.party[n].leveldone
+
+
+
+
 	cleanup()
 	#emit_signal("thingdone")
 

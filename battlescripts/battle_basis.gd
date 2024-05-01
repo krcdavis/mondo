@@ -12,6 +12,9 @@ var slots = []#appended to in btl head
 var points = []
 var labels = []
 
+#player's mon that's currently being given a command (move etc)
+var current_cursor = 0
+
 var textbox
 
 #hold the effectiveness multiplier of the last used move, for displaying the right message

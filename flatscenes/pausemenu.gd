@@ -16,12 +16,14 @@ const SETM = "settings"
 func _ready():
 	pass # Replace with function body.
 	$pauseoptions.menuhead = self
+	$partymenu.menuhead = self
 	
 	menus[MAINM] = $pauseoptions
 	menus[PARTYM] = $partymenu
 	menus[MONM] = $monmenu
 	menus[SETM] = $settingsmenu
 	
+	activemenu = $pauseoptions
 	#restate(MAINM)
 
 # 
@@ -39,6 +41,9 @@ func _process(delta):
 					activemenu.update_cursor("RT")
 				else: if Input.is_action_just_pressed("ui_accept"):
 					activemenu.execute_cursor()
+			MONM:
+				if Input.is_action_just_pressed("ui_accept"):#go back
+					restate(PARTYM)
 
 #same pattern as battle menus. time to consider how to simplify it and reuse code
 func restate(newstate, moncursor = -1):
@@ -57,6 +62,10 @@ func restate(newstate, moncursor = -1):
 			for key in menus:
 				menus[key].visible = key == newstate
 			mode = newstate
-			activemenu.update_menu(moncursor)
+			activemenu.update(moncursor)
 			#this could just be a if == MONM update(moncursor) else update()
 			#if i wanna be real crazy
+
+func unpause():
+	head.unpause()
+	#just passingit on

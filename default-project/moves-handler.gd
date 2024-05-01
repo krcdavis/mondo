@@ -123,7 +123,6 @@ func move_getprio(id):
 
 #complex ones. effect handling probably handled in battle scripts
 func move_getdmg(id):
-	print(id)
 	#values like -1 or 0 might indicate special damage calcs, non-damaging move, etc
 	#these details will probably be handled in the battle script, probably
 	var lol = move_getmove(id)

@@ -12,28 +12,30 @@ var actors = {}
 #ie, send in both actor to pull from and property to pull.
 const firstscript = [
 	#pan cam over to rival. rival turns to player and "walks" to them w/ cam. then
-	{typ: twn, trg: rival, prop:"rotation", end:Vector3(0,deg_to_rad(107-360),0), tme: .4,wait:false},
-	{typ: twn, trg: rival, prop:"position", end:Vector3(12.21,0.539,0), tme: .6,wait:true},
-	#$rival/Node3D.global_position
+	{typ: twn, trg: "playercam", prop:"global_position", "endtrg":"rival_campt", tme: 1.1,"intp":"quint",wait:true},
+	{typ: twn, trg: rival, prop:"rotation", end:Vector3(0,deg_to_rad(107-360),0), tme: .4,wait:true},
+	{typ: twn, trg: rival, prop:"position", "endtrg":"walkto", tme: 1.05,wait:false},
+	{typ: twn, trg: "playercam", prop:"global_position", "endtrg":"you-campt", tme: 1.1,"intp":"quint",wait:true},
 	{typ:txt,nme:rival,txt:"Hey, %pn! So you're finally awake, huh?? "},
-	#{typ: twn, trg: rival, prop:"rotation", end:Vector3(0,deg_to_rad(107-360),0), tme: .4,wait:true},
-	#{typ: twn, trg: rival, prop:"rotation", end:Vector3(0,deg_to_rad(107-360),0), tme: .4,wait:true},
 	{typ:txt,nme:rival,txt:"Lol, lmao even "},
-	#return cam, return player control
+	
 ]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	actors[rival] = $rival
+	actors["rival_campt"] = $Camera3D
+	actors["walkto"] = $walkto
 	#if flag, first event...
 	#temp
 	d.save.firstloadmapflag = true
 
 func loadingritual():
 	head.activate_player()
-	if d.save.firstloadmapflag:
-		d.save.firstloadmapflag = false
-		head.scriptplay(firstscript)
+	#
+	#if d.save.firstloadmapflag:
+		#d.save.firstloadmapflag = false
+		#head.scriptplay(firstscript)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -51,10 +53,19 @@ const rvsc2 = {typ:txt,nme:rival,txt:"What're you still hangin around here for, 
 func _on_rival_colision_area_entered(area):
 	#if interact probe, interact.
 	if area.name == "interact":
-		print("hi")
 		if rivalflip:
 			head.onescript(rvsc1)
 		else:
 			head.onescript(rvsc2)
 		#await head.scrdone#?
 		rivalflip = !rivalflip
+
+
+func _on_eventactivation_rival_body_entered(body):
+	pass # Replace with function body.
+	#if you and if flag set from introseq, do rival scene
+	#pick a party leader "mon"
+	if body.name == "you":
+		if d.save.firstloadmapflag:
+			d.save.firstloadmapflag = false
+			head.scriptplay(firstscript)

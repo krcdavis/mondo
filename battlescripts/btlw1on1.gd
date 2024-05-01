@@ -115,6 +115,9 @@ func newbattle():
 	#hrrm
 	load_yourside(0, p)
 	await self.thingdone
+
+	#set participants... later in the battle, this will be done on switch/send-in
+	slots[1].participants[ slots[0].mon.temp ] = true
 	
 	turnhead()
 

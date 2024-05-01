@@ -23,6 +23,8 @@ var cdb = .5#count down by...
 @onready var area = $"player-area"
 @onready var vis = $visual
 @onready var intp = $visual/intpoint
+@onready var camera = $campoint/Camera3D
+@onready var campt = $campoint
 #@onready var anim = $visual/model/serenahandler.anim
 var mode = ""
 

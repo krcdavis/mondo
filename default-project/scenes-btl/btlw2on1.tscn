@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://3c3ykv81a7rf"]
+[gd_scene load_steps=11 format=3 uid="uid://3c3ykv81a7rf"]
 
 [ext_resource type="Script" path="res://battlescripts/btlw2on1.gd" id="1_5rh8v"]
 [ext_resource type="PackedScene" uid="uid://dnm05icq701g3" path="res://default-project/scenes-btl/battletest_temp_2.tscn" id="1_m183r"]
@@ -8,32 +8,27 @@
 [ext_resource type="PackedScene" uid="uid://b7nmf3en84o7y" path="res://flatscenes/btl_right_small.tscn" id="6_8cv0m"]
 [ext_resource type="PackedScene" uid="uid://dll8f4oyqv7q5" path="res://flatscenes/btl_left_small.tscn" id="7_taci8"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2m2h1"]
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ju4po"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 
-[sub_resource type="Sky" id="Sky_51ipv"]
-sky_material = SubResource("ProceduralSkyMaterial_2m2h1")
+[sub_resource type="Sky" id="Sky_swfrt"]
+sky_material = SubResource("ProceduralSkyMaterial_ju4po")
 
-[sub_resource type="Environment" id="Environment_x2rto"]
+[sub_resource type="Environment" id="Environment_klrun"]
 background_mode = 2
 background_energy_multiplier = 0.95
-sky = SubResource("Sky_51ipv")
+sky = SubResource("Sky_swfrt")
 tonemap_mode = 2
-
-[sub_resource type="BoxMesh" id="BoxMesh_6r8c3"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iibgn"]
-albedo_color = Color(0.34902, 0.733333, 0.705882, 1)
 
 [node name="btlw2on1" type="Node3D"]
 script = ExtResource("1_5rh8v")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_x2rto")
+environment = SubResource("Environment_klrun")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.577855, 0.706799, -0.408068, 0, 0.499998, 0.866027, 0.81614, -0.500437, 0.288926, -9.42, 29.277, 28.672)
+transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 0, 0)
 light_energy = 0.785
 light_indirect_energy = 0.965
 shadow_enabled = true
@@ -72,8 +67,3 @@ position = Vector2(848, 11)
 
 [node name="label2" parent="." instance=ExtResource("7_taci8")]
 position = Vector2(170, 340)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(3.99618, 0, 0, 0, 3.99618, 0, 0, 0, 3.99618, 0, 33.7348, 0)
-mesh = SubResource("BoxMesh_6r8c3")
-surface_material_override/0 = SubResource("StandardMaterial3D_iibgn")

@@ -2,6 +2,8 @@
 extends "res://global/scripttags.gd"
 class_name Monster
 
+signal leveldone
+
 var nname: String #nickname actually
 var species_id: String
 
@@ -76,7 +78,7 @@ func setup_species_level(species, lvl, helth = -1, _yors = false):
 		nname = d.sph.getstg(species_id, tgname)
 		
 		level = lvl
-		expr = int(pow(lvl, 3)) #next: set_exp_level(species, lvl) that uses species_id for different growth types
+		expr = 100*(level-1)#temp
 		setstats(helth)
 		temp = 0#not -1 because reasons
 		
@@ -87,12 +89,40 @@ func setup_species_level(species, lvl, helth = -1, _yors = false):
 		move2 = d.sph.getstg(species_id, tbmoves)[2]
 		move3 = d.sph.getstg(species_id, tbmoves)[3]
 		
-		
 
+func add_exp(amt):
+	var newexpr = expr + amt
+	#get level from exp. if level > level, ...
+	var newlevel = get_level_from_exp(newexpr)
+	if newlevel > level:
+		update_level(newlevel)
+	expr = newexpr
+	
+	#just put this here for now
+	gb.currenttext.textplay(str("%s grew to level %s!" % [nname, str(level)]))
+	await gb.currenttext.textover
+	emit_signal("leveldone")
+	
+	#get and check threshold for next level, until no new levels
+	#using correct unique formula of course, but for now just this
+	#var threshl = 100 * level#battle engine.get exp level (level, growthtype)
+	#while newexpr >= threshl:
+		#addlevel()#...
+		#threshl = 100 * level
+	#expr = newexpr
+
+func get_level_from_exp(exp):
+	#temp hardcoded as this
+	#exp is 100 per level, so
+	return int((exp/100)) +1
+
+
+#this was only used for...
 func addlevel():
 	update_level(level+1)
 
 func update_level(newlvl):
+	var oldlevel = level
 	level = newlvl
 	setstats(health)#pass in current health
 	#should actually be current health + amt gained in levelup but that doesn't matter much rn

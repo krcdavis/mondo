@@ -52,7 +52,7 @@ func _process(_delta):
 
 func textreplace(t):
 	t = t.replace("%pn",d.save.playername)# :)
-	t = t.replace("%rv",d.save.playername)#temp
+	t = t.replace("%rv",d.save.rivalname)#temp
 	
 	t = t.replace("%t0",gb.textreg0)
 	t = t.replace("%t1",gb.textreg1)

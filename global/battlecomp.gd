@@ -15,6 +15,9 @@ const movenext_targets = []#this actually works... probably
 
 var ownr = ""
 
+#who gets EXP on fainting
+var participants = [false,false,false,false,false,false]#max party size...
+
 #stat boost/drop levels, clamped to n/-n as you please... define n somewhere
 var satk: int
 var sdef: int

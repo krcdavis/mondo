@@ -101,7 +101,7 @@ func execute_cursor():
 		optis:
 			print(optis)
 		back:
-			#head.unpause()
+			menuhead.unpause()
 			print(back)
 
 

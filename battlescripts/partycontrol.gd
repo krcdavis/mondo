@@ -26,7 +26,9 @@ func pupdate(force = false):
 	forced_switch = force
 	actives.clear()
 	
-	var temp = btlhead.slots[0].mon.temp
+	var slot = btlhead.current_cursor
+
+	var temp = btlhead.slots[slot].mon.temp
 	#print(temp)
 	for m in range(0,6):#party max size not plus 1
 		if m < party.party.size():
@@ -49,7 +51,9 @@ func pupdate(force = false):
 	activescount = actives.size()
 	update_cursor()
 
-func execute_cursor(slot = 0):
+#slot can be removed
+func execute_cursor(_slot = 0):
+	var slot = btlhead.current_cursor
 	#and if not force-switch
 	if cursor == actives.size() -1 and not forced_switch:
 		btlhead.restate(btlhead.OPTIONS)

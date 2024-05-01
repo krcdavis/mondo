@@ -21,6 +21,8 @@ func _ready():
 #exists in monster(ie extended project monster), then set
 #if label exists but not variable set some default
 
+
+
 func update(partyslot):#that should be the only time it's called
 	$nametg.setlabel(party.party[partyslot].nname)
 	$leveltg.setlabel(str(party.party[partyslot].level))

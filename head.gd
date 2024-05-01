@@ -11,8 +11,10 @@ var battlescenes = {}
 #things
 @onready var you = $you
 @onready var hud = $hud
-#@onready var phud = $pausemenu
+@onready var phud = $pausemenu
 @onready var text = $hud/textbox
+
+var targets = {}
 
 signal scrdone
 signal scriptdone
@@ -20,9 +22,16 @@ signal scriptdone
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	you.head = self
+	targets = {
+	"you":you,
+	"playercam":you.camera,#camera itself
+	"you-campt":you.campt#default camera location which shouldn't be moved
+	}
+	
 	hud.head = self
-	#phud.head = self
-	#phud.visible = false
+	gb.currenttext = text#or point to textbox?
+	phud.head = self
+	phud.visible = false
 	cmap = $map
 	text.visible = false
 	gb.head = self#i
@@ -35,10 +44,20 @@ func _ready():
 	#res://pokemon-project/scenes-maps/010vani_aqu/010_vville_240418.tscn
 	
 	#also from project data, get and load basic battle scene(s)
-	btlw1v1 = load(d.get_datapath() + "/scenes-btl/btlw_1_on_1.tscn").instantiate()#need fix naem
-	add_child(btlw1v1)
-	btlw1v1.visible = false#etc
-	btlw1v1.head = self
+	#temporarily hardcoded
+	var btemp = load(d.get_datapath() + "/scenes-btl/btlw_1_on_1.tscn").instantiate()#need fix naem
+	battlescenes["btlw1v1"] = btemp
+	add_child(btemp)
+	btemp.visible = false#etc
+	btemp.head = self
+	
+	#and
+	btemp = load("res://default-project/scenes-btl/btlw2on1.tscn").instantiate()
+	battlescenes["btlw2v1"] = btemp
+	add_child(btemp)
+	btemp.visible = false#etc
+	btemp.head = self
+	
 
 # process...
 #func _process(delta):
@@ -50,13 +69,14 @@ func pause():
 	#(eg, when free to walk around, when not in the middle of jumping off a ledge, etc)
 	#and show/activate the pause menu
 	
-	#phud.visible = true
-	storemode = mode
+	phud.visible = true
+	storemode = mode#maybe rename this pause-storemode or stg
 	mode = "pause"
+	phud.mode = phud.MAINM
 
 func unpause():
 	#undoes pause, on closing the pause menu.
-	#phud.visible = false
+	phud.visible = false
 	mode = storemode
 
 #var datapath = "res://"#...
@@ -90,7 +110,7 @@ func changemap(mapdata):#[map tscn name, point name]- point can be ignored for n
 	
 	if "wilds" in cmap:
 		#g.wild_map = true
-		wilds = cmap.wilds
+		wilds = cmap.wildstest
 	else:
 		#g.wild_map = false
 		wilds = []#no cinnabar coast shenanigans here!!
@@ -111,10 +131,10 @@ func activate_player():
 	you.visible = true
 	mode = "you"
 
-func add_battlescene(path, nme):
+func add_battlescene(path, bnme):
 	#to do: add errorchecking lol
 	var btemp = load(path).instantiate()
-	battlescenes[nme] = btemp
+	battlescenes[bnme] = btemp
 	add_child(btemp)
 
 #takes in the array of grass patch types the player was in contact with.
@@ -128,13 +148,16 @@ func init_battle(list):
 	#print(wildlist)
 	var selection = wildlist[ gb.rng.randi() % wildlist.size() ]
 	#print(selection)
-	#var btsc = selection.get(typ, "btlw1v1")
-	#b[btsc].wtemp = [selection["sp"],selection["lv"]]
-	btlw1v1.wtemp = selection
+	var btsc = selection.get(typ, "btlw1v1")
+	#set active battlescene variable?...
+	battlescenes[btsc].wtemp = [selection["sp"],selection["lv"]]
+	#btlw1v1.wtemp = selection
 	cmap.visible=false
-	btlw1v1.newbattle()
+	gb.currenttext = battlescenes[btsc].textbox
+	battlescenes[btsc].newbattle()
 
 #activates a previously setup battle with specified scene...
+#this is the old one
 func activate_battle(_scene = null):
 	cmap.visible = false
 	#do stg to reset player anim btw
@@ -149,6 +172,7 @@ func deactivate_battle():
 	#unhide map, free player/switch mode
 	cmap.visible = true
 	mode = "you"
+	gb.currenttext = text
 
 #i guess this will go here- takes an array of dicts
 func scriptplay(scripta):
@@ -161,6 +185,7 @@ func scriptplay(scripta):
 	await create_tween().tween_interval(.0002).finished#lol
 	mode = storemode1
 	emit_signal("scriptdone")
+
 
 #this also means simple one-line scripts can be played on their own
 func onescript(script):
@@ -185,12 +210,24 @@ func onescript(script):
 			#or, package menu in text script itself
 			await text.textover
 			hud.visible = script.get(dclr,false)
+		
+		#for target, these can have map-specific ones or universal ones (player,
+		#player's camera, player camera base point). define something for that
 		anm:
 			#TODO: error checking/handling at various levels. also, define a setup for animatable characters/objects so the animation player can be consistently accessed
 			#if not script.get(trg): error
+			#var targ = script[trg]
+			var target = null
+			if script[trg] == "you":#can't animate camera lmao. change back if anything else added
+				target = targets[script[trg]]
 			#else if cmap doesn't have actors; error
-			#else if not cmap.actors.get( script[trg] ): error
-			cmap.actors[script[trg]].anim.play( cmap.actors[script[trg]].anims[script[anm]] )
+			else:
+				target = cmap.actors.get( script[trg] )
+			#if target is null, error.
+
+			#make sure target has anim node
+			target.anim.play( target.anims[script[anm]] )
+
 			#if wait: wait, else wait anyway because otherwise it breaks
 			#also if anim loops don't wait...
 			#if script.get(wait,false): await cmap.actors[script[trg]].anim.animation_finished
@@ -199,10 +236,53 @@ func onescript(script):
 			await create_tween().tween_interval(.0002).finished#lol
 		twn:#tween
 			#if not script.get(trg): error
+			
+			#var targ = script[trg]
+			var target = null
+			if script[trg] in targets.keys():
+				target = targets[script[trg]]
 			#else if map doesn't have actors; error
-			#else if not map.actors.get( script[trg] ): error
+			else:
+				target = cmap.actors.get( script[trg] )
+			#if target still null, error
+			
+			#if property is rotate, try to get target's vis node and use that
+			#no error if not found, it's just preferred
+
+			#possible end types are hardcoded value (vec 3 in 3d), a predef's pos,
+			# an actor's pos, an add/subtract from current value.
+			#give these sept tags: endval, endtrg, endmod (as in modify) ?
+			#who gets the simple "end" tag, value? that's basically how it is now anyway
+			#also rotation should have a look-at type. do that later
+			var endval = null
+			if script.get("endtrg"):#try get target from predefs or actors
+				#var endtrg = script["endtrg"]
+				var endtarget = null
+				if script["endtrg"] in targets:#.keys()?
+					endtarget = targets[script["endtrg"]]
+				#else if map doesn't have actors; error
+				else:
+					endtarget = cmap.actors.get( script["endtrg"] )
+				if endtarget:
+					#property should be position, rotation, maybe scale- all global
+					match script[prop]:
+						"global_position","position":
+							endval = endtarget.global_position
+						"rotation":
+							pass
+						"scale":
+							pass
+				
+			#no error if not found, yet
+			#technically should error if script has a target that can't be found,
+			#or is somehow missing a property, but if stg else works it's sort of fine
+
+
+			#else if "endmod":# get matching val from target and calc
+			else: if end: endval = script[end]
+			#now if endval still null, error
 			var tween = create_tween()
-			tween.tween_property( cmap.actors[script[trg]], script[prop], script[end], script[tme] )#.st_trans( script[thing] )
+			tween.tween_property( target, script[prop], endval, script[tme] )#.st_trans( script[thing] )
 			if script.get(wait,false): await tween.finished
 			else: await create_tween().tween_interval(.0002).finished#lol
 		#TODO: add things like play sound effect, change music, menu, ...
