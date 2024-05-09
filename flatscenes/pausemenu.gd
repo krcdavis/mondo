@@ -11,6 +11,7 @@ const MAINM = "mainm"
 const PARTYM = "partym"
 const MONM = "monm"
 const SETM = "settings"
+const SVE = "save"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -65,6 +66,10 @@ func restate(newstate, moncursor = -1):
 			activemenu.update(moncursor)
 			#this could just be a if == MONM update(moncursor) else update()
 			#if i wanna be real crazy
+		SVE:
+			pass
+			#ask, yno, then
+			#head.save()
 
 func unpause():
 	head.unpause()

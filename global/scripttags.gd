@@ -8,8 +8,8 @@ const tgmodel = "model"
 const tgtype = "type"
 const tgbase = "base"#d on what?
 const tbmoves = "basemoves"
-const tgbmoves = "basemoves"
-const tgmoves = "moves"#things
+const tgbmoves = "basemoves"#deprecation in progress
+const tglmoves = "levelmoves"#
 
 const tgability = "ability"
 

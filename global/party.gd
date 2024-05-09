@@ -14,7 +14,8 @@ func _ready():
 func setup_party(inn):#[[],[],[]]
 	var count = 0
 	for thing in inn:
-		party.append(Monster.new())
+		party.append(dfmonster.new())
+		#party.append(Monster.new())
 		party[count].setup_species_level(thing[0],thing[1], thing[2])
 		count += 1
 		#set temp?

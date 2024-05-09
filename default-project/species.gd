@@ -12,7 +12,13 @@ const species = {
 			tgspeed:6
 		},
 		tgability:"none",
-		tgbmoves:["red1","red2","green2",""]
+		tgbmoves:["red1","red2","green2",""],
+		tglmoves: [
+			[0,"red1"],
+			[0,"green2"],
+			[8,"red2"],
+			[15,"yel2"],
+		]
 	},
 	"cone":{
 		tgname:"Cone",
@@ -25,7 +31,13 @@ const species = {
 			tgspeed:6
 		},
 		tgability:"none",
-		tgbmoves:["yel1","yel2","red2","",]
+		tgbmoves:["yel1","yel2","red2","",],
+		tglmoves: [
+			[0,"yel1"],
+			[0,"green2"],
+			[8,"red2"],
+			[15,"yel2"],
+		]
 	},
 	"sphere":{
 		tgname:"Sphere",
@@ -38,7 +50,13 @@ const species = {
 			tgspeed:6
 		},
 		tgability:"none",
-		tgbmoves:["blue1","blue2","pur2","",]
+		tgbmoves:["blue1","blue2","pur2","",],
+		tglmoves: [
+			[0,"blue1"],
+			[0,"blue1"],
+			[8,"pur2"],
+			[15,"green2"],
+		]
 	},
 	"icos":{
 		tgname:"Icosphere",
@@ -51,7 +69,13 @@ const species = {
 			tgspeed:6
 		},
 		tgability:"none",
-		tgbmoves:["pur1","pur2","yel2","sdgg",]
+		tgbmoves:["pur1","pur2","yel2","sdgg",],
+		tglmoves: [
+			[0,"pur1"],
+			[0,"green2"],
+			[8,"pur2"],
+			[15,"yel2"],
+		]
 	},
 	"donut":{
 		tgname:"Donut",
@@ -64,7 +88,13 @@ const species = {
 			tgspeed:6
 		},
 		tgability:"none",
-		tgbmoves:["green1","green2","blue2","",]
+		tgbmoves:["green1","green2","blue2","",],
+		tglmoves: [
+			[0,"green1"],
+			[0,"green2"],
+			[8,"blue2"],
+			[15,"yel2"],
+		]
 	},
 	"arock":{
 		tgname:"A Rock",
@@ -77,7 +107,13 @@ const species = {
 			tgspeed:6
 		},
 		tgability:"none",
-		tgbmoves:["green1","green2","blue2","",]
+		tgbmoves:["green1","green2","blue2","",],
+		tglmoves: [
+			[0,"red1"],
+			[0,"green2"],
+			[8,"red2"],
+			[15,"yel2"],
+		]
 	},
 	
 	"default":{

@@ -1,6 +1,6 @@
 ### Mondo project- mon game for Godot
 
-Mondo Project is a free and open-source turn based RPG game engine for the Godot engine, with a particular resemblance- to a certain popular monster-collecting franchise.
+Mondo Project is a free and open-source turn based RPG game engine for the Godot engine, with a particular resemblance to a certain popular monster-collecting franchise.
 My goal is to provide basic functionality without limiting the user to making a certain sort of game. The last thing I'd want to see is people making games with this that all have the same "feel"- same menu assets, same damage calculations, god forbid the same monster set... To that end, the project has been designed in a particular way.
 
 The user works largely within their own project folder. The base game looks for certain folders and files within the project folder to load into the right places. Additionally, base files are provided for certain things than the user can extend, so there's a kind of zig-zagging loading/hierarchy. For example, the battle scene loads a "battle engine" object that controls things like AI and damage calculations.

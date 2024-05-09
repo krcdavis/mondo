@@ -54,6 +54,7 @@ func calc_non_hp(base, unique, gains):#, lev): #level is the same for all 5 stat
 			
 
 func setstats(helth = -1):
+		print("base set stats")
 		#should be done on load or stg. or should be const
 		#if gb.n > 1: gb.n = .99
 		#if gb.n < 0: gb.n = .01
@@ -84,10 +85,35 @@ func setup_species_level(species, lvl, helth = -1, _yors = false):
 		
 		#base moveset from species data, temporary
 		#todo: add check for valid moves, lol
-		move0 = d.sph.getstg(species_id, tbmoves)[0]
-		move1 = d.sph.getstg(species_id, tbmoves)[1]
-		move2 = d.sph.getstg(species_id, tbmoves)[2]
-		move3 = d.sph.getstg(species_id, tbmoves)[3]
+		#move0 = d.sph.getstg(species_id, tbmoves)[0]
+		#move1 = d.sph.getstg(species_id, tbmoves)[1]
+		#move2 = d.sph.getstg(species_id, tbmoves)[2]
+		#move3 = d.sph.getstg(species_id, tbmoves)[3]
+
+		#NEXT: loop thru levelupmoves, get all <= lvl, set last 4
+		var lmoves = d.sph.getstg(species_id, tglmoves)
+		var moveslist = []
+		for l in lmoves:
+			if l[0] >= level and d.moves.move_isvalid(l[1]):
+				moveslist.append(l[1])
+		if moveslist.size() == 0:#literally nothing
+			move0 = "punch"#idk some global default move
+		else: if moveslist.size() >= 4:
+				move0 = moveslist[-4]
+				move1 = moveslist[-3]
+				move2 = moveslist[-2]
+				move3 = moveslist[-1]
+		else:
+			if moveslist.size() >= 1:
+				move0 = moveslist[0]
+			if moveslist.size() >= 2:
+				move1 = moveslist[1]
+			if moveslist.size() == 3:
+				move2 = moveslist[2]
+
+		
+
+
 		
 
 func add_exp(amt):
@@ -124,10 +150,16 @@ func addlevel():
 func update_level(newlvl):
 	var oldlevel = level
 	level = newlvl
+	#hmmm.....
 	setstats(health)#pass in current health
 	#should actually be current health + amt gained in levelup but that doesn't matter much rn
 	#check for new moves(hahah)
 
+#iterate from oldlevel+1 to new/current level, checking for levelup moves
+#next: define levelup moves format, add functionality to learn moves, delete moves
+#both in and out of battle...
+func level_move_catchup(oldlevel):
+	pass
 
 #getmove, setmove, getpp, setpp, decpp; sethealth, dmg by percent, dmg by amt, heal
 func getmove(n):
